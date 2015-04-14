@@ -1,0 +1,9 @@
+<h2>This is the splash page.</h2>
+
+
+<p>Featured Tours (not all the tours, of course not):</p>
+<ul>
+<% @tours.each do |tour| %>
+  <li><%= link_to tour.name, tour_path(tour) %></il>
+<% end %>
+</ul>
