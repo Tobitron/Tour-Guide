@@ -22,6 +22,11 @@ class ToursController < ApplicationController
   def show
     @tour = Tour.find(params[:id])
     @stops = @tour.stops
+
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @stops.to_json }
+    end
   end
 
   protected
