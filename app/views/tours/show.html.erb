@@ -1,11 +1,12 @@
 <h2><%= @tour.name %></h2>
-Tour stops:
+<p><%= link_to "New Stop", new_tour_stop_path(@tour) %></p>
 
-<ul>
+Tour stops
+
 <% @stops.each do |stop| %>
-  <li><%= stop.name %></li>
+  <button id="<%= stop.name %>" > <%= TourStop.where(tour_id: @tour, stop_id: stop).first.stop_number %> <%= stop.name %></button>
 <% end %>
-</ul>
+
 
 <div id="map-canvas"></div>
 

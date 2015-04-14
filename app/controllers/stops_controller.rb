@@ -14,12 +14,12 @@ class StopsController < ApplicationController
 
     if @stop.save
       tour_stop = TourStop.new(tour_id: @tour.id, stop_id: @stop.id, stop_number: new_stop_number(@tour))
-      
       if tour_stop.save
         flash[:notice] = "New stop created"
-        render :new
+        redirect_to new_tour_stop_path(@tour)
       else
         flash[:notice] = "Ruh roh! Something went wrong."
+        render :new
       end
     else
       flash[:notice] = @stop.errors.full_messages
@@ -29,8 +29,11 @@ class StopsController < ApplicationController
 
   def new_stop_number(tour)
   # should def be in model, will do later
-    last_stop = tour.tour_stops.last
-    new_stop = last_stop.stop_number + 1
+    if tour.tour_stops.last.stop_number == nil
+      new_stop = 1
+    else
+      new_stop = tour.tour_stops.last.stop_number + 1
+    end
   end
 
   protected

@@ -1,8 +1,9 @@
 $main-color: #ff0000;
 $steel: #666666;
+ $ghost       : #FAFAFA;
 $font-sans: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 body {
-  background-color: $steel;
+  background-color: $ghost;
   font-family: $font-sans;
 }

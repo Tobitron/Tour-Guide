@@ -25,3 +25,8 @@
 .top-bar {
   background: blue;
 }
+
+body {
+  background-color: $ghost;
+  font-family: $font-sans;
+}
