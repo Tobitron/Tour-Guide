@@ -1,0 +1,21 @@
+<h2> Create New Tour Stop </h2>
+
+  <%= form_for [@tour, @stop] do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+
+      <%= f.label :latitude %>
+      <%= f.text_field :latitude %>
+
+      <%= f.label :longitude %>
+      <%= f.text_field :longitude %>
+
+      <%= f.label :stop_length %>
+      <%= f.text_field :stop_length %>
+
+      <%= f.submit %>
+  <% end %>
