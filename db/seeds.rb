@@ -27,6 +27,6 @@ tour_stops = TourStop.create([
   { tour_id: 1, stop_id: 2, stop_number: 2},
   { tour_id: 1, stop_id: 3, stop_number: 3},
   { tour_id: 1, stop_id: 4, stop_number: 4},
-  { tour_id: 2, stop_id: 4, stop_number: 1},
-  { tour_id: 2, stop_id: 5, stop_number: 2}
+  { tour_id: 2, stop_id: 5, stop_number: 1},
+  { tour_id: 2, stop_id: 6, stop_number: 2}
   ])

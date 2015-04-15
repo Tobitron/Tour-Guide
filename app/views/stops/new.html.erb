@@ -1,23 +1,50 @@
-<h2> Create New Tour Stop </h2>
+<div class="new-stop-container">
+  <h2> Create New Tour Stop </h2>
+  <div class="row">
+    <div id="new-stop-map" class="small-4 columns"> </div>
+    <script type="text/javascript">
 
-  <%= form_for [@tour, @stop] do |f| %>
+    function initialize() {
+      var opts = {
+        center: { lat: 42.352, lng: -71.062},
+        zoom: 14 };
 
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+      var map = new google.maps.Map(document.getElementById('new-stop-map'), opts);
 
-      <%= f.label :description %>
-      <%= f.text_field :description %>
+      google.maps.event.addListener(map,'click',function(event) {
+        $("#stop_latitude").val(event.latLng.lat());
+        $("#stop_longitude").val(event.latLng.lng());
+      })
+    }
 
-      <%= f.label :latitude %>
-      <%= f.text_field :latitude %>
+    google.maps.event.addDomListener(window, 'load', initialize);
 
-      <%= f.label :longitude %>
-      <%= f.text_field :longitude %>
+    </script>
 
-      <%= f.label :stop_length %>
-      <%= f.text_field :stop_length %>
 
-      <%= f.submit %>
-  <% end %>
+    <div class="small-5 columns">
+      <%= form_for [@tour, @stop] do |f| %>
 
-<p><%= link_to "Done Adding Stops", tour_path(@tour) %></p>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+
+        <%= f.label :latitude %>
+        <%= f.text_field :latitude %>
+
+        <%= f.label :longitude %>
+        <%= f.text_field :longitude %>
+
+        <%= f.label :stop_length %>
+        <%= f.text_field :stop_length %>
+
+        <%= f.submit class: :button %>
+      <% end %>
+    </div>
+
+  </div>
+
+  <p><%= link_to "Done Adding Stops", tour_path(@tour), class: :button %></p>
+</div>

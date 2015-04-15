@@ -1,9 +1,12 @@
-<h2>This is the splash page.</h2>
+<div class="content">
+  <h2>This is the splash page.</h2>
+  <%= link_to "New Tour", new_tour_path %>
 
+  <p>Featured Tours (not all the tours, of course not):</p>
 
-<p>Featured Tours (not all the tours, of course not):</p>
-<ul>
-<% @tours.each do |tour| %>
-  <li><%= link_to tour.name, tour_path(tour) %></il>
-<% end %>
-</ul>
+  <ul>
+  <% @tours.each do |tour| %>
+    <li><%= link_to tour.name, tour_path(tour) %></il>
+  <% end %>
+  </ul>
+</div>
