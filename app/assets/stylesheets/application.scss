@@ -16,17 +16,51 @@
 
  */
 
- #map-canvas {
-   width: 600px;
-   height: 500px;
-   margin-left: 3em;
- }
-
-.top-bar {
-  background: blue;
-}
+$ghost: #FAFAFA;
 
 body {
   background-color: $ghost;
-  font-family: $font-sans;
+}
+
+ #map-canvas {
+   /* why can't I use percents? */
+   height: 800px;
+   img { max-width: none; }
+   label { width: auto; display: inline; }
+ }
+
+.top-bar {
+  background: #08295E;
+  height: 3.5em;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+  background: #3B6595;
+  height: 4.3em;
+}
+
+
+.content {
+
+}
+
+.stop-list{
+  list-style-type: none;
+
+}
+
+
+.tour-stop-name {
+  background-color: #404749;
+  font-size: 1.5em;
+  color: white;
+  padding-left: 1em;
+}
+
+.tour-stop-body {
+  padding-left: .5em;
+  background-color: #A9B0B3;
+  padding-top: 1em;
+  padding-bottom: 2em;
+
 }

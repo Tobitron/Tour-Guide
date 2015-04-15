@@ -1,4 +1,4 @@
-// $.get("/tours/1.json", function(stops) {
+// // $.get("/tours/1.json", function(stops) {
 function initialize() {
   var center = { lat: stops[0].latitude, lng: stops[0].longitude };
   var mapOptions = {
@@ -15,13 +15,14 @@ function initialize() {
         map: map
     });
 
+    google.maps.event.addDomListener(document.getElementById(stop.name), 'click', function () {
+      map.setCenter(new google.maps.LatLng(stop.latitude, stop.longitude));
+    });
+
     var infowindow = new google.maps.InfoWindow({
       content: '<div>' + stop.description + '</div>'
     });
 
-    google.maps.event.addDomListener(document.getElementById(stop.name), 'click', function () {
-      map.setCenter(new google.maps.LatLng(stop.latitude, stop.longitude));
-    });
 
     google.maps.event.addListener(marker, 'click', function() {
       map.setCenter(marker.getPosition());
@@ -32,5 +33,4 @@ function initialize() {
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
-
-// });
+// // });

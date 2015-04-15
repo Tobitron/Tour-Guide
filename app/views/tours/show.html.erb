@@ -1,14 +1,25 @@
 <h2><%= @tour.name %></h2>
-<p><%= link_to "New Stop", new_tour_stop_path(@tour) %></p>
+<%= link_to "New Stop", new_tour_stop_path(@tour) %>
 
-Tour stops
+<!-- <% @stops.each do |stop| %>
+  <button id="<%= stop.name %>"> <%= TourStop.where(tour_id: @tour, stop_id: stop).first.stop_number %> <%= stop.name %></button>
+<% end %> -->
 
-<% @stops.each do |stop| %>
-  <button id="<%= stop.name %>" > <%= TourStop.where(tour_id: @tour, stop_id: stop).first.stop_number %> <%= stop.name %></button>
-<% end %>
-
-
-<div id="map-canvas"></div>
+<div class="row">
+  <div id="map-canvas" class="small-8 columns"></div>
+  <div class="small-4 columns">
+    <div class="content">
+      <div class="stop-list">
+      <% @stops.each do |stop| %>
+        <a href=#>
+          <div id="<%= stop.name %>" class="tour-stop-name" > <%= TourStop.where(tour_id: @tour, stop_id: stop).first.stop_number %> <%= stop.name %></div>
+        </a>
+        <div class="tour-stop-body"> <%= stop.description %> </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script type="text/javascript">
   var stops = <%= @stops.to_json.html_safe %>
