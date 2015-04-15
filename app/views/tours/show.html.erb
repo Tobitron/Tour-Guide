@@ -1,5 +1,6 @@
+<div class="container">
 <h2><%= @tour.name %></h2>
-<%= link_to "New Stop", new_tour_stop_path(@tour) %>
+<%= link_to "New Stop", new_tour_stop_path(@tour), class: :button %>
 
 <!-- <% @stops.each do |stop| %>
   <button id="<%= stop.name %>"> <%= TourStop.where(tour_id: @tour, stop_id: stop).first.stop_number %> <%= stop.name %></button>
@@ -24,3 +25,4 @@
 <script type="text/javascript">
   var stops = <%= @stops.to_json.html_safe %>
 </script>
+</div>
