@@ -1,5 +1,9 @@
 class Tour < ActiveRecord::Base
-  has_many :tour_stops
-  has_many :stops, through: :tour_stops
+  has_many :tour_stops, dependent: :destroy
+  has_many :stops, through: :tour_stops, dependent: :destroy
+
+  def owner?(current_user)
+    self.user_id == current_user.id unless current_user == nil
+  end
 
 end

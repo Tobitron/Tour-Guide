@@ -1,4 +1,6 @@
 class ToursController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
+  before_action :fetch_tour, only: [:show, :edit, :destroy, :update]
 
   def index
     @tours = Tour.all
@@ -9,7 +11,7 @@ class ToursController < ApplicationController
   end
 
   def create
-    @tour = Tour.new(tour_params)
+    @tour = Tour.new(name: tour_params[:name], user_id: current_user.id)
     if @tour.save
       flash[:notice] = 'Tour created.'
       redirect_to new_tour_stop_path(@tour)
@@ -20,12 +22,27 @@ class ToursController < ApplicationController
   end
 
   def show
-    @tour = Tour.find(params[:id])
     @stops = @tour.stops
-
     respond_to do |format|
       format.html { render :show }
       format.json { render json: @stops.to_json }
+    end
+  end
+
+  def update
+    if @tour.update(tour_params)
+      flash[:notice] = 'Tour Updated'
+      redirect_to tour_path(@tour)
+    else
+      flash[:alert] = 'Error: tour not updated'
+      render :edit
+    end
+  end
+
+  def destroy
+    if @tour.destroy
+      flash[:notice] = 'Tour Deleted'
+      redirect_to root_path
     end
   end
 
@@ -33,4 +50,8 @@ class ToursController < ApplicationController
     def tour_params
       params.require(:tour).permit(:name)
     end
+
+  def fetch_tour
+    @tour = Tour.find(params[:id])
+  end
 end

@@ -1,10 +1,14 @@
 <div class="container">
 <h2><%= @tour.name %></h2>
-<%= link_to "New Stop", new_tour_stop_path(@tour), class: :button %>
+<p>Length of Time:</p>
+<p>Distance:</p>
+<p>Strenuous?</p>
 
-<!-- <% @stops.each do |stop| %>
-  <button id="<%= stop.name %>"> <%= TourStop.where(tour_id: @tour, stop_id: stop).first.stop_number %> <%= stop.name %></button>
-<% end %> -->
+<% if @tour.owner?(current_user) %>
+  <%= link_to "New Stop", new_tour_stop_path(@tour), class: :button %>
+  <%= link_to "Delete Tour", @tour, method: :delete, class: :button, data: {confirm: "Are you sure?"} %>
+  <%= link_to "Edit Tour", edit_tour_path, class: :button %>
+<% end %>
 
 <div class="row">
   <div id="map-canvas" class="small-8 columns"></div>
@@ -13,9 +17,19 @@
       <div class="stop-list">
       <% @stops.each do |stop| %>
         <a href=#>
-          <div id="<%= stop.name %>" class="tour-stop-name" > <%= TourStop.where(tour_id: @tour, stop_id: stop).first.stop_number %> <%= stop.name %></div>
+          <div id="<%= stop.name %>" class="tour-stop-name" >
+            <%= TourStop.where(tour_id: @tour, stop_id: stop).first.stop_number %> <%= stop.name %>
+          </div>
+        <div class="tour-stop-body">
         </a>
-        <div class="tour-stop-body"> <%= stop.description %> </div>
+          <%= stop.description %>
+          <% if @tour.owner?(current_user) %>
+            <div class="crud-buttons">
+              <%= link_to "Delete", [@tour, stop], method: :delete, class: "tiny button", data: {confirm: "Are you sure?"} %>
+              <%= link_to "Edit", edit_tour_stop_path(@tour, stop), class: "tiny button" %>
+            </div>
+          <% end %>
+        </div>
       <% end %>
       </div>
     </div>

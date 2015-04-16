@@ -9,6 +9,7 @@ FactoryGirl.define do
 
   factory :tour do
     name 'San Francisco Bars'
+    user_id 1
   end
 
   factory :stop do

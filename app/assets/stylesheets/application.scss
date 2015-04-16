@@ -37,7 +37,6 @@ body {
   margin-bottom: 1em;
 }
 
-
 .container {
   margin-left: 2em;
 }
@@ -56,6 +55,11 @@ body {
 .top-bar {
   background: #08295E;
   height: 3.5em;
+}
+
+.top-bar .name h1 {
+  font-size: 1.5em;
+  margin-top: 2px;
 }
 
 .top-bar-section li:not(.has-form) a:not(.button) {
