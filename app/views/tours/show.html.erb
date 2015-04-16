@@ -1,19 +1,27 @@
 <div class="container">
-<h2><%= @tour.name %></h2>
-<p>Length of Time:</p>
-<p>Distance:</p>
-<p>Strenuous?</p>
+  <div class="row">
+    <div class="small-8 columns">
+      <h2><%= @tour.name %></h2>
+    </div>
+    <div class="small-4 columns tour-stats">
+      <ul>
+        <li>Length of Time:</li>
+        <li>Distance:</li>
+        <li>Strenuous?</li>
+      </ul>
+    </div>
+  </div>
 
 <% if @tour.owner?(current_user) %>
   <%= link_to "New Stop", new_tour_stop_path(@tour), class: :button %>
-  <%= link_to "Delete Tour", @tour, method: :delete, class: :button, data: {confirm: "Are you sure?"} %>
   <%= link_to "Edit Tour", edit_tour_path, class: :button %>
+  <%= link_to "Delete Tour", @tour, method: :delete, class: :button, data: {confirm: "Are you sure?"} %>
 <% end %>
 
 <div class="row">
   <div id="map-canvas" class="small-8 columns"></div>
   <div class="small-4 columns">
-    <div class="content">
+    <div class="tour-content">
       <div class="stop-list">
       <% @stops.each do |stop| %>
         <a href=#>
@@ -25,8 +33,8 @@
           <%= stop.description %>
           <% if @tour.owner?(current_user) %>
             <div class="crud-buttons">
-              <%= link_to "Delete", [@tour, stop], method: :delete, class: "tiny button", data: {confirm: "Are you sure?"} %>
               <%= link_to "Edit", edit_tour_stop_path(@tour, stop), class: "tiny button" %>
+              <%= link_to "Delete", [@tour, stop], method: :delete, class: "tiny button", data: {confirm: "Are you sure?"} %>
             </div>
           <% end %>
         </div>

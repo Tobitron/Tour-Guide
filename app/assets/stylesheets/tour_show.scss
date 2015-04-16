@@ -1,0 +1,33 @@
+#map-canvas {
+ /* why can't I use percents? */
+ height: 600px;
+ img { max-width: none; }
+ label { width: auto; display: inline; }
+}
+
+.tour-stats {
+}
+
+.tour-content {
+  margin-left: 0em;
+  overflow: auto;
+  height: 600px;
+}
+
+.tour-stop-name {
+  background-color: #404749;
+  font-size: 1.5em;
+  color: white;
+  padding-left: 1em;
+}
+
+.tour-stop-body {
+  padding-left: .5em;
+  background-color: #A9B0B3;
+  padding-top: 1em;
+  padding-bottom: .5em;
+}
+
+.crud-buttons {
+  padding-top: 2em;
+}

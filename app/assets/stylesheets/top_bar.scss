@@ -1,0 +1,14 @@
+.top-bar {
+  background: #08295E;
+  height: 3.5em;
+}
+
+.top-bar .name h1 {
+  font-size: 1.5em;
+  margin-top: 2px;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+  background: #3B6595;
+  height: 4.3em;
+}

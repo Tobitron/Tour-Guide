@@ -1,15 +1,4 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
  *= require_tree .
  *= require_self
  *= require foundation_and_overrides
@@ -22,96 +11,20 @@ body {
   background-color: $ghost;
 }
 
-#map-canvas {
- /* why can't I use percents? */
- height: 800px;
- img { max-width: none; }
- label { width: auto; display: inline; }
-}
-
-#new-stop-map {
-  height: 500px;
-  width: 500px;
-  img { max-width: none; }
-  label { width: auto; display: inline; }
-  margin-bottom: 1em;
-}
 
 .container {
   margin-left: 2em;
+
+  ul {
+    list-style-type: none;
+  }
 }
 
 .content {
-  margin-left: 0em;
-  overflow: auto;
-  height: 800px;
-}
+  margin-left: 1em;
 
-.content ul {
-  list-style-type: none;
-  margin: 0;
-}
-
-.top-bar {
-  background: #08295E;
-  height: 3.5em;
-}
-
-.top-bar .name h1 {
-  font-size: 1.5em;
-  margin-top: 2px;
-}
-
-.top-bar-section li:not(.has-form) a:not(.button) {
-  background: #3B6595;
-  height: 4.3em;
-}
-
-.tour-stop-name {
-  background-color: #404749;
-  font-size: 1.5em;
-  color: white;
-  padding-left: 1em;
-}
-
-.tour-stop-body {
-  padding-left: .5em;
-  background-color: #A9B0B3;
-  padding-top: 1em;
-  padding-bottom: 2em;
-
-}
-
-
-////////////show page search box
-
-.controls {
-  margin-top: 16px;
-  border: 1px solid transparent;
-  border-radius: 2px 0 0 2px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  height: 32px;
-  outline: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
-
-#pac-input {
-  background-color: #fff;
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
-  margin-top: 12px;
-  margin-left: 6px;
-  padding: 0 11px 0 13px;
-  text-overflow: ellipsis;
-  width: 400px;
-}
-
-#pac-input:focus {
-  border-color: #4d90fe;
-}
-
-.pac-container {
-  font-family: Roboto;
+  ul {
+    list-style-type: none;
+    margin: 0;
+  }
 }
