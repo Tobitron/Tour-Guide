@@ -17,6 +17,3 @@ feature 'Create a new stop for a tour.' do
 
   end
 end
-
-
-fill_in 'Body', with: 'This is the most amazing show ever created.'

@@ -11,6 +11,13 @@
   font-size: 1em;
 }
 
+#directions-text {
+  width: 400px;
+  height: 300px;
+  border: 2px solid red;
+  overflow: auto;
+}
+
 .tour-content {
   margin-left: 0em;
   overflow: auto;
