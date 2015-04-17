@@ -1,5 +1,11 @@
 class StopsController < ApplicationController
 
+  def index
+    tour = Tour.find(params[:tour_id])
+    @stops = tour.stops
+    render json: @stops
+  end
+
   def new
     @stop = Stop.new
     @tour = Tour.find(params[:tour_id])
