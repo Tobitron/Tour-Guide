@@ -1,8 +1,9 @@
 class StopsController < ApplicationController
 
   def index
-    tour = Tour.find(params[:tour_id])
-    @stops = tour.stops
+    # tour = Tour.find(params[:tour_id])
+    # @stops = tour.stops
+    @stops = Stop.all
     render json: @stops
   end
 

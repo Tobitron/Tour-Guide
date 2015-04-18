@@ -59,6 +59,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 
 // instead of hardcoding ids, will need to loop through stop ids and insert their names
-$("#river_gods, brick_and_mortar, #the_plough_and_stars").click(function() {
+$("#river_gods, #brick_and_mortar, #the_plough_and_stars").click(function() {
   calcRoute();
 });
