@@ -55,4 +55,3 @@ class ToursController < ApplicationController
     @tour = Tour.find(params[:id])
   end
 end
-rai

@@ -34,8 +34,8 @@
           <%= stop.description %>
           <% if @tour.owner?(current_user) %>
             <div class="crud-buttons">
-              <%= link_to "Edit", edit_tour_stop_path(@tour, stop), class: "tiny button" %>
-              <%= link_to "Delete", [@tour, stop], method: :delete, class: "tiny button", data: {confirm: "Are you sure?"} %>
+              <%= link_to "Edit Stop", edit_tour_stop_path(@tour, stop), class: "tiny button" %>
+              <%= link_to "Delete Stop", [@tour, stop], method: :delete, class: "tiny button" %>
             </div>
           <% end %>
         </div>

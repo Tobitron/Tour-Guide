@@ -15,13 +15,6 @@ feature 'Feature: user creates a tour.' do
     fill_in "Name", with: "The Test Tour"
     click_button "Create Tour"
 
-    expect(page).to have_content("Tour Created.")
-  end
-
-  scenario 'user tries to delete a tour that they did not create' do
-    visit root_path
-    click_button "New Tour"
-
-    expect(page).to have_content("Log in")
+    expect(page).to have_content("Tour created.")
   end
 end

@@ -1,8 +1,10 @@
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 
+
 function initialize() {
-  directionsDisplay = new google.maps.DirectionsRenderer();
+  // supressed directions marker icons here, could theoritcally make custom ones, but I think it'll be busy in addition to place markers
+  directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
   var center = { lat: stops[0].latitude, lng: stops[0].longitude };
   var mapOptions = {
     center: center,
@@ -10,6 +12,7 @@ function initialize() {
   };
 
   var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
   directionsDisplay.setMap(map);
   directionsDisplay.setPanel(document.getElementById('directions-text'));
 
