@@ -13,9 +13,12 @@
 
 #directions-text {
   width: 400px;
-  height: 300px;
-  border: 2px solid red;
+  height: 400px;
   overflow: auto;
+}
+
+.next-stop-directions {
+  margin-top: 1em;
 }
 
 .tour-content {
@@ -35,7 +38,6 @@
   padding-left: .5em;
   background-color: #A9B0B3;
   padding-top: 1em;
-  padding-bottom: .5em;
 }
 
 .crud-buttons {

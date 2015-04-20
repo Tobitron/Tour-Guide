@@ -17,8 +17,7 @@
   <%= link_to "Edit Tour", edit_tour_path, class: :button %>
   <%= link_to "Delete Tour", @tour, method: :delete, class: :button, data: {confirm: "Are you sure?"} %>
 <% end %>
-<button id="directions">Click for Directions</button>
-<div id="directions-text"></div>
+<button id="directions">Directions to Tour Start</button>
 <div class="row">
   <div id="map-canvas" class="small-8 columns"></div>
   <div class="small-4 columns">
@@ -32,6 +31,7 @@
         <div class="tour-stop-body">
         </a>
           <%= stop.description %>
+          <div id="<%= stop.name.parameterize.underscore + "_directions" %>" class="next-stop-directions"><button class="tiny button">Directions</button></div>
           <% if @tour.owner?(current_user) %>
             <div class="crud-buttons">
               <%= link_to "Edit Stop", edit_tour_stop_path(@tour, stop), class: "tiny button" %>
@@ -43,10 +43,12 @@
       </div>
     </div>
   </div>
+  <div id="directions-text"></div>
 </div>
 
 <script type="text/javascript">
   var stops = <%= @stops.to_json.html_safe %>
   var tour_stops = <%= @tour.tour_stops.to_json.html_safe %>
+  var tour_data = <%= @tour_data.to_json.html_safe %>
 </script>
 </div>

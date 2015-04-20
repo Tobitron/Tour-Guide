@@ -23,9 +23,10 @@ class ToursController < ApplicationController
 
   def show
     @stops = @tour.stops
+    @tour_data = StopsData.get_data(@tour)
     respond_to do |format|
       format.html { render :show }
-      format.json { render json: @stops.to_json }
+      format.json { render json: @tour_data }
     end
   end
 

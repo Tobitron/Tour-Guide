@@ -1,7 +1,6 @@
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
 
-
 function initialize() {
   // supressed directions marker icons here, could theoritcally make custom ones, but I think it'll be busy in addition to place markers
   directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
@@ -16,17 +15,18 @@ function initialize() {
   directionsDisplay.setMap(map);
   directionsDisplay.setPanel(document.getElementById('directions-text'));
 
-  stops.forEach(function(stop) {
+  tour_data.forEach(function(stop) {
 
     var marker = new google.maps.Marker({
         position: new google.maps.LatLng(stop.latitude, stop.longitude),
         map: map
     });
 
-    // Note to future Toby! When I changed the naming mechanism for Ids in ruby it probably fucked this up.
-    // google.maps.event.addDomListener(document.getElementById(stop.name), 'click', function () {
-    //   map.setCenter(new google.maps.LatLng(stop.latitude, stop.longitude));
-    // });
+    google.maps.event.addDomListener(document.getElementById(stop.div_id), 'click', function () {
+      map.setCenter(new google.maps.LatLng(stop.latitude, stop.longitude));
+      // This will reset the directions panel if you click on another stop, not sure if I want to do this though
+      // document.getElementById("directions-text").innerHTML = "";
+    });
 
     var infowindow = new google.maps.InfoWindow({
       content: '<div>' + stop.description + '</div>'
@@ -39,20 +39,19 @@ function initialize() {
   });
  }
 
-function calcRoute() {
-  // I want start to be stop number of div id clicked on + 1
-  // trying to create an API to serve up JSON data yayyySON
-
- var start = new google.maps.LatLng(stops[0].latitude, stops[0].longitude);
- var end = new google.maps.LatLng(stops[1].latitude, stops[1].longitude);
+function calcRoute(start_lat, start_long, end_lat, end_long) {
+ var start = new google.maps.LatLng(start_lat, start_long);
+ var end = new google.maps.LatLng(end_lat, end_long);
 
  var request = {
      origin: start,
      destination: end,
-     travelMode: google.maps.TravelMode.DRIVING
+     travelMode: google.maps.TravelMode.WALKING
  };
+
  directionsService.route(request, function(response, status) {
    if (status == google.maps.DirectionsStatus.OK) {
+     debugger;
      directionsDisplay.setDirections(response);
    }
  });
@@ -60,8 +59,9 @@ function calcRoute() {
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
-
-// instead of hardcoding ids, will need to loop through stop ids and insert their names
-$("#river_gods, #brick_and_mortar, #the_plough_and_stars").click(function() {
-  calcRoute();
+// This loop both declares which divs should trigger calcRoute, and passes in the parameters that calcRoute will use
+tour_data.forEach(function(stop) {
+  $("#" + stop.div_id + "_directions").click(function() {
+    calcRoute(stop.latitude, stop.longitude, tour_data[(stop.stop_number)].latitude, tour_data[(stop.stop_number)].longitude);
+  });
 });

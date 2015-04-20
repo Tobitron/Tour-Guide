@@ -8,12 +8,4 @@ class Stop < ActiveRecord::Base
   validates :stop_length, presence: true, numericality: { only_integer: true }
 
 
-  # def new_stop_number
-  #   if tour_stops.last == nil
-  #     new_stop = 1
-  #   else
-  #     binding.pry
-  #     new_stop = tour.tour_stops.last.stop_number + 1
-  #   end
-  # end
 end
