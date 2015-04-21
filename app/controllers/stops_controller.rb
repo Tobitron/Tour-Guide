@@ -1,8 +1,6 @@
 class StopsController < ApplicationController
 
   def index
-    # tour = Tour.find(params[:tour_id])
-    # @stops = tour.stops
     @stops = Stop.all
     render json: @stops
   end
@@ -34,6 +32,11 @@ class StopsController < ApplicationController
   def edit
     @stop = Stop.find(params[:id])
     @tour = Tour.find(params[:tour_id])
+    @tour_data = StopsData.get_data(@tour)
+    respond_to do |format|
+      format.html { render :edit }
+      format.json { render json: @tour_data }
+    end
   end
 
   def update
