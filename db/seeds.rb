@@ -3,8 +3,8 @@ users = User.create([
   ])
 
 tours = Tour.create([
-  { name: "San Francisco Burrito Tour", user_id: 1 },
-  { name: "Cambridge Bar Tour", user_id: 1 }
+  { name: "San Francisco Burrito Tour", user_id: 1, category: "Food/Drinks" },
+  { name: "Cambridge Bar Tour", user_id: 1, category: "Food/Drinks" }
   ])
 
 stops = Stop.create([

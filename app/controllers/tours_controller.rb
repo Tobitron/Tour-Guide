@@ -11,7 +11,7 @@ class ToursController < ApplicationController
   end
 
   def create
-    @tour = Tour.new(name: tour_params[:name], user_id: current_user.id)
+    @tour = Tour.new(name: tour_params[:name], category: tour_params[:category], user_id: current_user.id)
     if @tour.save
       flash[:notice] = 'Tour created.'
       redirect_to new_tour_stop_path(@tour)
@@ -49,7 +49,7 @@ class ToursController < ApplicationController
 
   protected
     def tour_params
-      params.require(:tour).permit(:name)
+      params.require(:tour).permit(:name, :category)
     end
 
   def fetch_tour

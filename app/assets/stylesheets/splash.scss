@@ -1,9 +1,25 @@
 $main-color: #ff0000;
 $steel: #666666;
- $ghost       : #FAFAFA;
+$ghost: #FAFAFA;
 $font-sans: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 body {
   background-color: $ghost;
   font-family: $font-sans;
+}
+
+.splash-image {
+  background-image: url("nyc-streets.png");
+  margin-top: 2em;
+  width: 1000px;
+  height: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  float: none !important
+}
+
+.image-content {
+  margin-left: auto;
+  margin-right: auto;
+  float: none !important
 }

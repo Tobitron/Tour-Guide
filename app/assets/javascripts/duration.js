@@ -29,4 +29,4 @@ function callback(response, status) {
     }
   }
 
-calculateDistances()
+calculateDistances();

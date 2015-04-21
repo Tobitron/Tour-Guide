@@ -1,12 +1,14 @@
 <div class="content">
-  <h2>This is the splash page.</h2>
-  <%= link_to "New Tour", new_tour_path, class: :button %>
-
-  <p>Featured Tours (not all the tours, of course not):</p>
-
-  <ul>
-  <% @tours.each do |tour| %>
-    <li><%= link_to tour.name, tour_path(tour) %></il>
-  <% end %>
-  </ul>
+  <div class="row">
+    <div class="small-12 column centered splash-image">
+      <div class="small-4 column centered image-content">
+        <%= link_to "Make a Tour", new_tour_path, class: :button %>
+        <ul>
+          <% @tours.each do |tour| %>
+            <li><%= link_to tour.name, tour_path(tour) %></il>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
