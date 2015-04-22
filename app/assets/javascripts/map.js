@@ -53,6 +53,7 @@ function initialize() {
   });
 }
 
+
 function calc_route_to_start() {
   var start = new google.maps.LatLng(user_latitude, user_longitude);
   var end = new google.maps.LatLng(stops[0].latitude, stops[0].longitude);

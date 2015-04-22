@@ -9,12 +9,8 @@ body {
 }
 
 .splash-image {
-  background-image: url("nyc-streets.png");
-  width: 1000px;
-  height: 500px;
   margin-left: auto;
   margin-right: auto;
-  float: none !important
 }
 
 .image-content {
@@ -26,6 +22,8 @@ body {
 .category-container {
   padding-top: 1em;
   padding-bottom: 1em;
+  margin-left: none;
+  width: 100%;
   background-color: #08295E;
   color: $ghost;
 
@@ -36,4 +34,16 @@ body {
   a {
     color: $ghost;
   }
+}
+
+.categories {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.call-to-action {
+  margin-top: 2em;
+  margin-left: auto;
+  margin-right: auto;
 }

@@ -54,7 +54,6 @@ class ToursController < ApplicationController
         end
       end
     end
-
   end
 
   def destroy

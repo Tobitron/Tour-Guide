@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= jquery.waypoints
 //= require gmaps/google
 //= require foundation
 //= require_tree .

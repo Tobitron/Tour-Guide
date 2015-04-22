@@ -1,72 +1,65 @@
+<div class="splash-image"><%= image_tag "high_line.jpg" %></div>
 <div class="content">
   <div class="row">
-    <div class="small-12 column centered splash-image">
-      <div class="small-4 column centered image-content">
-        <%= link_to "Make a Tour", new_tour_path, class: :button %>
+    <div class="medium-12 column centered splash-image">
+      <div class="row">
+        <div class="medium-2 medium-centered column call-to-action">
+          <%= link_to "Make a Tour", new_tour_path, class: :button %>
+        </div>
       </div>
     </div>
   </div>
     <div class="category-container">
-      <div class="row">
-        <div class="small-2 columns">
-          <h4>Food & Drinks</h4>
-          <ul>
-            <% if !@food_drinks_tours.empty? %>
-              <% @food_drinks_tours.each do |tour| %>
-                <li><%= link_to tour.name, tour_path(tour) %></il>
+      <div class="categories">
+        <div class="row">
+          <div class="medium-3 columns">
+            <h4>Food & Drinks</h4>
+            <ul>
+              <% if !@food_drinks_tours.empty? %>
+                <% @food_drinks_tours.each do |tour| %>
+                  <li><%= link_to tour.name, tour_path(tour) %></il>
+                <% end %>
+              <% else %>
+                <li> No food & drinks tours currently available. </li>
               <% end %>
-            <% else %>
-              <li> No food & drinks tours currently available. </li>
-            <% end %>
-          </ul>
-        </div>
-        <div class="small-2 columns">
-          <h4>Site Seeing</h4>
-          <ul>
-            <% if !@site_seeing.empty? %>
-              <% @site_seeing.each do |tour| %>
-                <li><%= link_to tour.name, tour_path(tour) %></il>
+            </ul>
+          </div>
+          <div class="medium-3 columns">
+            <h4>Site Seeing</h4>
+            <ul>
+              <% if !@site_seeing.empty? %>
+                <% @site_seeing.each do |tour| %>
+                  <li><%= link_to tour.name, tour_path(tour) %></il>
+                <% end %>
+              <% else %>
+                <li> No site seeing tours currently available. </li>
               <% end %>
-            <% else %>
-              <li> No site seeing tours currently available. </li>
-            <% end %>
-          </ul>
-        </div>
-        <div class="small-2 columns">
-          <h4>History</h4>
-          <ul>
-            <% if !@history.empty? %>
-              <% @history.each do |tour| %>
-                <li><%= link_to tour.name, tour_path(tour) %></il>
+            </ul>
+          </div>
+          <div class="medium-3 columns">
+            <h4>History</h4>
+            <ul>
+              <% if !@history.empty? %>
+                <% @history.each do |tour| %>
+                  <li><%= link_to tour.name, tour_path(tour) %></il>
+                <% end %>
+              <% else %>
+                <li> No history tours currently available. </li>
               <% end %>
-            <% else %>
-              <li> No history tours currently available. </li>
-            <% end %>
-          </ul>
-        </div>
-        <div class="small-2 columns ">
-          <h4>Architecture</h4>
-          <ul>
-            <% if !@architecture.empty? %>
-              <% @architecture.each do |tour| %>
-                <li><%= link_to tour.name, tour_path(tour) %></il>
+            </ul>
+          </div>
+          <div class="medium-3 columns ">
+            <h4>Architecture</h4>
+            <ul>
+              <% if !@architecture.empty? %>
+                <% @architecture.each do |tour| %>
+                  <li><%= link_to tour.name, tour_path(tour) %></il>
+                <% end %>
+              <% else %>
+                <li> No architecture tours currently available. </li>
               <% end %>
-            <% else %>
-              <li> No architecture tours currently available. </li>
-            <% end %>
-          </ul>
-        </div>
-        <div class="small-2 columns end">
-          <h4>Hybrid</h4>
-          <ul>
-            <% if !@hybrid.empty? %>
-              <% @hybrid.each do |tour| %>
-                <li><%= link_to tour.name, tour_path(tour) %></il>
-              <% end %>
-            <% else %>
-              <li> No hybrid tours currently available. </li>
-            <% end %>
-          </ul>
+            </ul>
+          </div>
         </div>
       </div>
   </div>
