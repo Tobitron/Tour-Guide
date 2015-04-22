@@ -25,6 +25,7 @@ $( document ).ready(function() {
     };
 
     var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+    var icon = "http://icons.iconarchive.com/icons/poison/native-american/32/American-Bison-icon.png"
 
     directionsDisplay.setMap(map);
     directionsDisplay.setPanel(document.getElementById('directions-text'));
@@ -33,7 +34,14 @@ $( document ).ready(function() {
 
       var marker = new google.maps.Marker({
           position: new google.maps.LatLng(stop.latitude, stop.longitude),
-          map: map
+          map: map,
+          icon: {
+              path: google.maps.SymbolPath.CIRCLE,
+              scale: 8.5,
+              fillColor: "#F00",
+              fillOpacity: 0.4,
+              strokeWeight: 0.4
+          },
       });
 
       google.maps.event.addDomListener(document.getElementById(stop.div_id), 'click', function () {
@@ -48,8 +56,6 @@ $( document ).ready(function() {
 
       google.maps.event.addListener(marker, 'click', function() {
         map.setCenter(marker.getPosition());
-        // removes the infowindow on marker click, pretty sure I don't want this
-        // infowindow.open(map, marker);
       });
     });
   }
