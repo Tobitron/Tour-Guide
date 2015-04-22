@@ -71,6 +71,45 @@ function calc_route_to_start() {
   });
 };
 
+function calc_total_route() {
+  var x = location.href
+  var start = new google.maps.LatLng(stops[0].latitude, stops[0].longitude);
+  var end = new google.maps.LatLng(stops[stops.length - 1].latitude, stops[stops.length - 1].longitude);
+  var waypts = [];
+  // loop over all destinations except start and end. For each push the destination into a new point
+  tour_data.forEach(function(stop) {
+    waypts.push({
+            location:new google.maps.LatLng(stop.latitude, stop.longitude),
+            stopover:true});
+  });
+
+  var request = {
+      origin: start,
+      waypoints: waypts,
+      destination: end,
+      optimizeWaypoints: true,
+      travelMode: google.maps.TravelMode.WALKING
+  };
+
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      leg_durations = []
+
+      // I need to loop through the response and create an array of durations
+      response.routes[0].legs.forEach(function(duration) {
+          leg_durations.push(duration.duration);
+      });
+
+      $.ajax({
+        method: 'PUT',
+        url: x,
+        data: { tour_legs: leg_durations },
+        dataType: 'json'
+      });
+    }
+  });
+};
+
 function calc_route(start_lat, start_long, end_lat, end_long) {
  var start = new google.maps.LatLng(start_lat, start_long);
  var end = new google.maps.LatLng(end_lat, end_long);
@@ -100,3 +139,5 @@ tour_data.forEach(function(stop) {
     calc_route(stop.latitude, stop.longitude, tour_data[(stop.stop_number)].latitude, tour_data[(stop.stop_number)].longitude);
   });
 });
+
+calc_total_route();

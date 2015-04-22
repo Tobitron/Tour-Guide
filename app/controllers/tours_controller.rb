@@ -40,8 +40,25 @@ class ToursController < ApplicationController
     respond_to do |format|
       format.json do
         # Move this to the model later
-        binding.pry
-        walking_time_minutes = params[:tour_length][:rows]["0"][:elements]["0"][:duration][:value].to_i / 60
+        transit_time = 0
+      binding.pry
+        params[:tour_legs].values.each do |length|
+          transit_time += length[:value].to_i
+        end
+
+      time_spent_at_stop = 0
+      stops = @tour.stops
+      stops.each do |stop|
+        time_spent_at_stop += stop.stop_length
+      end
+
+      total_tour_time = (time_spent_at_stop * 60) + transit_time
+      if @tour.update(tour_length: total_tour_time)
+        flash[:notice] = 'Tour length updated'
+      else
+        flash[:alert] = 'Error: tour not updated'
+        render :edit
+      end
 
       end
       format.html do
