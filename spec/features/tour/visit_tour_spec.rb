@@ -6,7 +6,7 @@ feature 'Feature: user visits a tour\'s show page.' do
     tour = FactoryGirl.create(:tour)
     stop = FactoryGirl.create(:stop)
     FactoryGirl.create(:tour_stop, tour_id: tour.id, stop_id: stop.id)
-    visit root_path
+    visit tour_path(tour)
 
     expect(page).to have_content('San Francisco Bars')
   end

@@ -41,7 +41,6 @@ class ToursController < ApplicationController
       format.json do
         # Move this to the model later
         transit_time = 0
-      binding.pry
         params[:tour_legs].values.each do |length|
           transit_time += length[:value].to_i
         end
