@@ -17,9 +17,6 @@ class ToursController < ApplicationController
   end
 
   def create
-    format.json do
-    end
-
     @tour = Tour.new(name: tour_params[:name], category: tour_params[:category], user_id: current_user.id)
     if @tour.save
       flash[:notice] = 'Tour created.'
