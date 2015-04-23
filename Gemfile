@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 gem 'rails', '4.2.1'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -15,6 +14,7 @@ gem 'gmaps4rails'
 gem "active_model_serializers", "0.8.3"
 gem 'devise'
 gem 'foundation-rails', '= 5.5.1.0'
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'web-console', '~> 2.0'
@@ -26,3 +26,5 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
 end
+
+ruby "2.0.0"
