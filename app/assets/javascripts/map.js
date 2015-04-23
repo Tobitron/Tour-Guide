@@ -34,7 +34,10 @@ function initialize() {
   var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
   directionsDisplay.setMap(map);
-  directionsDisplay.setPanel(document.getElementById('directions-text'));
+
+  // tour_data.forEach(function(stop) {
+  //   directionsDisplay.setPanel(document.getElementById(stop.div_id + '_directions_text'));
+  // });
 
   tour_data.forEach(function(stop) {
 
@@ -53,11 +56,11 @@ function initialize() {
     google.maps.event.addDomListener(document.getElementById(stop.div_id), 'click', function () {
       map.setCenter(new google.maps.LatLng(stop.latitude, stop.longitude));
       // This will reset the directions panel if you click on another stop, not sure if I want to do this though
-      // document.getElementById("directions-text").innerHTML = "";
-    });
 
-    var infowindow = new google.maps.InfoWindow({
-      content: '<div>' + stop.description + '</div>'
+
+      tour_data.forEach(function(stop) {
+        document.getElementById(stop.div_id + "_directions_text").innerHTML = "";
+      });
     });
 
     google.maps.event.addListener(marker, 'click', function() {
@@ -128,7 +131,7 @@ function calc_total_route() {
   });
 };
 
-function calc_route(start_lat, start_long, end_lat, end_long) {
+function calc_route(stop_div_id, start_lat, start_long, end_lat, end_long) {
  var start = new google.maps.LatLng(start_lat, start_long);
  var end = new google.maps.LatLng(end_lat, end_long);
 
@@ -143,6 +146,9 @@ function calc_route(start_lat, start_long, end_lat, end_long) {
      directionsDisplay.setDirections(response);
    }
  });
+
+ directionsDisplay.setPanel(document.getElementById(stop_div_id + '_directions_text'));
+
 };
 
 google.maps.event.addDomListener(window, 'load', initialize);
@@ -154,7 +160,7 @@ $("#" + tour_data[0].div_id + '_directions').click(function() {
 // This loop both declares which divs should trigger calcRoute, and passes in the parameters that calcRoute will use
 tour_data.forEach(function(stop) {
   $("#" + stop.div_id + "_directions").click(function() {
-    calc_route(stop.latitude, stop.longitude, tour_data[(stop.stop_number)].latitude, tour_data[(stop.stop_number)].longitude);
+    calc_route(stop.div_id, stop.latitude, stop.longitude, tour_data[(stop.stop_number)].latitude, tour_data[(stop.stop_number)].longitude);
   });
 });
 

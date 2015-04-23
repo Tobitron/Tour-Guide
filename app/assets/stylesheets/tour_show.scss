@@ -1,6 +1,6 @@
 #map-canvas {
  /* why can't I use percents? */
- height: 700px;
+ height: 100%;
  width: 100%;
  position: absolute;
  img { max-width: none; }
@@ -17,8 +17,6 @@
 }
 
 #directions-text {
-  width: 400px;
-  height: 400px;
   overflow: auto;
 }
 
@@ -27,17 +25,21 @@
 }
 
 .tour-content {
+  height: 45em;
   overflow: auto;
-  height: 700px;
 }
 
 .tour-stop-name {
   margin-top: 1em;
   padding-left: 1em;
-  opacity: .75;
+  opacity: .8;
   background-color: #404749;
   color: white;
   font-size: 1.5em;
+}
+
+.stop-number {
+  color: maroon;
 }
 
 .tour-stop-body {
@@ -46,6 +48,7 @@
   padding-top: 1em;
   font-size: .9em;
   background-color: white;
+  opacity: .92;
 }
 
 .crud-buttons {
