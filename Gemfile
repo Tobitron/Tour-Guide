@@ -17,6 +17,7 @@ gem 'foundation-rails', '= 5.5.1.0'
 gem 'rails_12factor', group: :production
 
 group :development, :test do
+  # gem 'rack-mini-profiler'
   gem 'web-console', '~> 2.0'
   gem 'spring', '~> 1.3.4'
   gem 'rspec-rails'

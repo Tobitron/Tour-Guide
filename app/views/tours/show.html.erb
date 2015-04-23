@@ -1,12 +1,12 @@
 <div class="container">
-  <div class="row">
-    <div class="tour-header">
+  <div class="row header-row">
+    <div class="medium-5 columns tour-header">
       <h2><%= @tour.name %></h2>
     </div>
     <div class="medium-4 columns tour-stats">
       <ul>
-        <li>Tour length (including stops) <%= @tour_length_parsed %></li>
-        <li>Total Distance <%= @tour.tour_distance %></li>
+        <li>Time to complete: <%= @tour_length_parsed %></li>
+        <li>Total Distance: <%= @tour.tour_distance %> miles</li>
       </ul>
     </div>
   </div>
@@ -22,7 +22,7 @@
     <div class="tour-content">
       <div class="stop-list">
       <% @stops.each do |stop| %>
-        <a href=#>
+        <a href="#">
           <div id="<%= stop.name.parameterize.underscore %>" class="tour-stop-name" >
             <%= TourStop.where(tour_id: @tour, stop_id: stop).first.stop_number %> <%= stop.name %>
           </div>

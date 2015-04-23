@@ -25,3 +25,21 @@ body {
     margin: 0;
   }
 }
+
+
+.top-bar-section ul li {
+  background: none;
+  font-size: 1.1em;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button):hover {
+  font-size: 1.1em;
+  background: none;
+  color: black;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+  font-size: 1.1em;
+  background: none;
+  border: none;
+}

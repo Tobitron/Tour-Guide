@@ -19,4 +19,29 @@ class Tour < ActiveRecord::Base
     end
   end
 
+  def self.get_tour_by_category(category)
+    where(category: category).limit(10)
+  end
+
+  def calculate_tour_time(tour_legs_params, tour)
+    transit_time = 0
+    tour_legs_params.values.each do |length|
+      transit_time += length[:value].to_i
+    end
+
+    time_spent_at_stop = 0
+    stops = @tour.stops
+
+    stops.each do |stop|
+      time_spent_at_stop += stop.stop_length
+    end
+
+    total_tour_time = (time_spent_at_stop * 60) + transit_time
+
+  end
+
+  def tour_length_in_minutes
+    # sum up tour time
+  end
+
 end

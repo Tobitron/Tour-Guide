@@ -1,9 +1,9 @@
 class StopsController < ApplicationController
 
-  def index
-    @stops = Stop.all
-    render json: @stops
-  end
+  # def index
+  #   @stops = Stop.all
+  #   render json: @stops
+  # end
 
   def new
     @stop = Stop.new

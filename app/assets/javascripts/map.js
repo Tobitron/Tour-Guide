@@ -13,7 +13,6 @@ function show_map(loc) {
   //   data: { user_latitude: user_latitude,  user_longitude: user_longitude },
   //   dataType: 'json'
   // });
-
 };
 
 
@@ -119,12 +118,12 @@ function calc_total_route() {
           leg_lengths.push(length.distance);
       });
 
-      // $.ajax({
-      //   method: 'PUT',
-      //   url: x,
-      //   data: { tour_legs: leg_durations, leg_lengths: leg_lengths },
-      //   dataType: 'json'
-      // });
+      $.ajax({
+        method: 'PUT',
+        url: x,
+        data: { tour_legs: leg_durations, leg_lengths: leg_lengths },
+        dataType: 'json'
+      });
     }
   });
 };

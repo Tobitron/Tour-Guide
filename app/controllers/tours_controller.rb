@@ -3,13 +3,11 @@ class ToursController < ApplicationController
   before_action :fetch_tour, only: [:show, :edit, :destroy, :update]
 
   def index
-    @tours = Tour.all
-    # get_food_drinks_tours why won't method work? It's in a class.
-    @food_drinks_tours = Tour.where(category: "Food/Drinks").limit(10)
-    @site_seeing = Tour.where(category: "Site Seeing").limit(10)
-    @history = Tour.where(category: "History").limit(10)
-    @architecture = Tour.where(category: "Architecture").limit(10)
-    @hybrid = Tour.where(category: "hybrid").limit(10)
+    @food_drinks_tours = Tour.get_tour_by_category("Food/Drinks")
+    @site_seeing = Tour.get_tour_by_category("Site Seeing")
+    @history = Tour.get_tour_by_category("History")
+    @architecture = Tour.get_tour_by_category("Architecture")
+    @hybrid = Tour.get_tour_by_category("Hybrid")
   end
 
   def new
@@ -45,19 +43,24 @@ class ToursController < ApplicationController
         params[:leg_lengths].values.each do |distance|
           tour_distance += distance[:text].to_f
         end
-        # Move this to the model later
+
+        # total_tour_time = calculate_tour_time(params[:tour_legs], @tour)
+
+
         transit_time = 0
         params[:tour_legs].values.each do |length|
           transit_time += length[:value].to_i
         end
 
+        # binding.pry
         time_spent_at_stop = 0
         stops = @tour.stops
         stops.each do |stop|
-        time_spent_at_stop += stop.stop_length
+          time_spent_at_stop += stop.stop_length
       end
 
       total_tour_time = (time_spent_at_stop * 60) + transit_time
+
       if @tour.update(tour_length: total_tour_time, tour_distance: tour_distance)
         flash[:notice] = 'Tour length updated'
       else
