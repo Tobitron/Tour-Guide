@@ -1,9 +1,9 @@
 <div class="container">
-  <div class="row tour-header">
-    <div class="small-8 columns">
+  <div class="row">
+    <div class="tour-header">
       <h2><%= @tour.name %></h2>
     </div>
-    <div class="small-4 columns tour-stats">
+    <div class="medium-4 columns tour-stats">
       <ul>
         <li>Tour length (including stops) <%= @tour_length_parsed %></li>
         <li>Total Distance <%= @tour.tour_distance %></li>
@@ -16,10 +16,9 @@
   <%= link_to "Edit Tour", edit_tour_path, class: :button %>
   <%= link_to "Delete Tour", @tour, method: :delete, class: :button, data: {confirm: "Are you sure?"} %>
 <% end %>
-<button id="start_directions">Directions to Tour Start</button>
 <div class="row">
-  <div id="map-canvas" class="small-8 columns"></div>
-  <div class="small-4 columns">
+  <div id="map-canvas"></div>
+  <div class="medium-4 columns medium-offset-8">
     <div class="tour-content">
       <div class="stop-list">
       <% @stops.each do |stop| %>

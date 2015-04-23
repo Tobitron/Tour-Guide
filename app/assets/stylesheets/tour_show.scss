@@ -1,13 +1,19 @@
 #map-canvas {
  /* why can't I use percents? */
  height: 700px;
+ width: 100%;
+ position: absolute;
  img { max-width: none; }
  label { width: auto; display: inline; }
 }
 
+.tour-header {
+  float: left;
+  padding: none;
+  margin: none;
+}
+
 .tour-stats ul {
-  margin-left: 0px;
-  margin-bottom: 0px;
   font-size: 1em;
 }
 
@@ -22,24 +28,25 @@
 }
 
 .tour-content {
-  margin-left: 0em;
   overflow: auto;
   height: 700px;
 }
 
 .tour-stop-name {
-  background-color: #404749;
-  font-size: 1.5em;
-  color: white;
+  margin-top: 1em;
   padding-left: 1em;
+  opacity: .75;
+  background-color: #404749;
+  color: white;
+  font-size: 1.5em;
 }
 
 .tour-stop-body {
-  padding-left: .5em;
-/*   background-color: #A9B0B3; */
+  padding-left: 2em;
+  padding-right: 2em;
   padding-top: 1em;
-  background: 2px solid black !important;
-
+  font-size: .9em;
+  background-color: white;
 }
 
 .crud-buttons {

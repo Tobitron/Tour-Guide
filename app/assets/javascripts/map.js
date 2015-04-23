@@ -45,7 +45,7 @@ $( document ).ready(function() {
           map: map,
           icon: {
               path: google.maps.SymbolPath.CIRCLE,
-              scale: 13,
+              scale: 14,
               fillColor: "#E26008",
               fillOpacity: 0.6,
               strokeWeight: 0.6
