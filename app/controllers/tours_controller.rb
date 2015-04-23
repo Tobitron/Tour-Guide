@@ -17,6 +17,9 @@ class ToursController < ApplicationController
   end
 
   def create
+    format.json do
+    end
+
     @tour = Tour.new(name: tour_params[:name], category: tour_params[:category], user_id: current_user.id)
     if @tour.save
       flash[:notice] = 'Tour created.'
@@ -28,6 +31,7 @@ class ToursController < ApplicationController
   end
 
   def show
+    @tour_length_parsed = distance_of_time_in_words(@tour.tour_length)
     @stops = @tour.stops
     @tour_data = StopsData.get_data(@tour)
     respond_to do |format|
@@ -39,20 +43,25 @@ class ToursController < ApplicationController
   def update
     respond_to do |format|
       format.json do
+
+        tour_distance = 0
+        params[:leg_lengths].values.each do |distance|
+          tour_distance += distance[:text].to_f
+        end
         # Move this to the model later
         transit_time = 0
         params[:tour_legs].values.each do |length|
           transit_time += length[:value].to_i
         end
 
-      time_spent_at_stop = 0
-      stops = @tour.stops
-      stops.each do |stop|
+        time_spent_at_stop = 0
+        stops = @tour.stops
+        stops.each do |stop|
         time_spent_at_stop += stop.stop_length
       end
 
       total_tour_time = (time_spent_at_stop * 60) + transit_time
-      if @tour.update(tour_length: total_tour_time)
+      if @tour.update(tour_length: total_tour_time, tour_distance: tour_distance)
         flash[:notice] = 'Tour length updated'
       else
         flash[:alert] = 'Error: tour not updated'

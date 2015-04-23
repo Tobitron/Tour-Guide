@@ -7,7 +7,16 @@ $( document ).ready(function() {
   function show_map(loc) {
     window.user_latitude = loc.coords.latitude;
     window.user_longitude = loc.coords.longitude
+
+    $.ajax({
+      method: 'PUT',
+      url: '/',
+      data: { user_latitude: user_latitude,  user_longitude: user_longitude },
+      dataType: 'json'
+    });
+
   };
+
 
   get_location(location);
 
@@ -25,7 +34,6 @@ $( document ).ready(function() {
     };
 
     var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-    var icon = "http://icons.iconarchive.com/icons/poison/native-american/32/American-Bison-icon.png"
 
     directionsDisplay.setMap(map);
     directionsDisplay.setPanel(document.getElementById('directions-text'));
@@ -37,10 +45,10 @@ $( document ).ready(function() {
           map: map,
           icon: {
               path: google.maps.SymbolPath.CIRCLE,
-              scale: 8.5,
-              fillColor: "#F00",
-              fillOpacity: 0.4,
-              strokeWeight: 0.4
+              scale: 13,
+              fillColor: "#E26008",
+              fillOpacity: 0.6,
+              strokeWeight: 0.6
           },
       });
 
@@ -101,16 +109,21 @@ $( document ).ready(function() {
     directionsService.route(request, function(response, status) {
       if (status == google.maps.DirectionsStatus.OK) {
         leg_durations = []
+        leg_lengths = []
 
         // I need to loop through the response and create an array of durations
         response.routes[0].legs.forEach(function(duration) {
             leg_durations.push(duration.duration);
         });
 
+        response.routes[0].legs.forEach(function(length) {
+            leg_lengths.push(length.distance);
+        });
+
         $.ajax({
           method: 'PUT',
           url: x,
-          data: { tour_legs: leg_durations },
+          data: { tour_legs: leg_durations, leg_lengths: leg_lengths },
           dataType: 'json'
         });
       }

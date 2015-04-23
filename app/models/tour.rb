@@ -1,3 +1,4 @@
+include ActionView::Helpers::DateHelper
 class Tour < ActiveRecord::Base
   has_many :tour_stops, dependent: :destroy
   has_many :stops, through: :tour_stops, dependent: :destroy
