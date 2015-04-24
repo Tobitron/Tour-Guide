@@ -1,5 +1,7 @@
 class StopsData
 
+  # This was deprecated when I switched to an AMS api, however leaving this here for now so i can remember
+  # my thought process and how my design decisions progressed on this project.
   def self.get_data(tour)
     stops = tour.stops
     stop_nums = tour.tour_stops

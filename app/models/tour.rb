@@ -52,4 +52,11 @@ class Tour < ActiveRecord::Base
     # sum up tour time
   end
 
+  def self.get_food_drinks_tours
+    where(category: "Food/Drinks").limit(10)
+  end
+
+  def tour_length_in_minutes
+    # sum up tour time
+  end
 end

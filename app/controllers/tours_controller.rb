@@ -28,10 +28,9 @@ class ToursController < ApplicationController
   def show
     @tour_length_parsed = distance_of_time_in_words(@tour.tour_length)
     @stops = @tour.stops
-    @tour_data = StopsData.get_data(@tour)
     respond_to do |format|
       format.html { render :show }
-      format.json { render json: @tour_data }
+      format.json { render json: @tour }
     end
   end
 
@@ -51,7 +50,6 @@ class ToursController < ApplicationController
           transit_time += length[:value].to_i
         end
 
-        # binding.pry
         time_spent_at_stop = 0
         stops = @tour.stops
         stops.each do |stop|
