@@ -7,9 +7,16 @@ class Tour < ActiveRecord::Base
   validates :user, presence: true
   validates :name, presence: true
 
+  # scope :tour_by_category, ->(category) { where(category: category) }
+  # scope :category_by_ten, ->(cat) { tour_by_category(cat).limit(10) }
+
   def owner?(current_user)
     self.user_id == current_user.id unless current_user == nil
   end
+
+  # def signed_in?
+  #   current_user
+  # end
 
   def new_stop_number
     if tour_stops.last == nil
@@ -17,10 +24,11 @@ class Tour < ActiveRecord::Base
     else
       new_stop = tour_stops.last.stop_number + 1
     end
+    # refactor to find correct num by tour_stops count
   end
 
   def self.get_tour_by_category(category)
-    where(category: category).limit(10)
+    where(category: category)
   end
 
   def calculate_tour_time(tour_legs_params, tour)

@@ -46,7 +46,6 @@ class ToursController < ApplicationController
 
         # total_tour_time = calculate_tour_time(params[:tour_legs], @tour)
 
-
         transit_time = 0
         params[:tour_legs].values.each do |length|
           transit_time += length[:value].to_i
@@ -93,7 +92,7 @@ class ToursController < ApplicationController
       params.require(:tour).permit(:name, :category)
     end
 
-  def fetch_tour
-    @tour = Tour.find(params[:id])
-  end
+    def fetch_tour
+      @tour = Tour.find(params[:id])
+    end
 end
