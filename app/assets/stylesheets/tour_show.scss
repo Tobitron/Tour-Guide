@@ -1,5 +1,4 @@
 #map-canvas {
- /* why can't I use percents? */
  height: 100%;
  width: 100%;
  position: absolute;
@@ -8,16 +7,33 @@
 }
 
 .tour-header {
-
+  margin-left: .5em;
+  width: 50%;
+  float: left;
+  position: absolute;
+  z-index: 1;
+  text-shadow: 3px 0px 2px rgba(84, 142, 209, 1);
 }
 
-.tour-stats ul {
+.tour-stats {
+  float: right;
+  position: relative;
+  z-index: 1;
   margin-top: .5em;
-  width: 350px;
-  color: maroon;
-  margin-left: .1em;
-  font-size: 1em;
+  margin-right: 1.2em;
+  width: 29.5%;
   border: 1px solid gray;
+/*   background-color: #404749;
+opacity: .5; */
+}
+
+.stats-text {
+  margin-top: 1em;
+  margin-right: .4em;
+  color: black;
+  opacity: none;
+  list-style-type: none;
+  text-shadow: 2px 2px 8px rgb(0,0,0);
 }
 
 #directions-text {

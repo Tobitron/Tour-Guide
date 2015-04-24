@@ -1,15 +1,14 @@
-<div class="container">
-  <div class="row header-row">
-    <div class="medium-5 columns tour-header">
-      <h2><%= @tour.name %></h2>
-    </div>
-    <div class="medium-4 columns tour-stats">
-      <ul>
-        <li>Time to complete: <%= @tour_length_parsed %></li>
-        <li>Total Distance: <%= @tour.tour_distance %> miles</li>
-      </ul>
-    </div>
+<div class="header-row">
+  <div class="">
+    <h2 class="tour-header"><%= @tour.name %></h2>
   </div>
+  <div class="tour-stats">
+    <ul class="stats-text">
+      <li>Time to complete: <%= @tour_length_parsed %></li>
+      <li>Total Distance: <%= @tour.tour_distance %> miles</li>
+    </ul>
+  </div>
+</div>
 
 <% if @tour.owner?(current_user) %>
   <%= link_to "New Stop", new_tour_stop_path(@tour), class: :button %>
@@ -50,4 +49,3 @@
     var tour_stops = <%= @tour.tour_stops.to_json.html_safe %>
     var tour_data = <%= @tour_data.to_json.html_safe %>
 </script>
-</div>
