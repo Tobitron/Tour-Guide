@@ -1,10 +1,5 @@
 class StopsController < ApplicationController
 
-  # def index
-  #   @stops = Stop.all
-  #   render json: @stops
-  # end
-
   def new
     @stop = Stop.new
     @tour = Tour.find(params[:tour_id])
@@ -20,7 +15,7 @@ class StopsController < ApplicationController
         flash[:notice] = "New stop created"
         redirect_to new_tour_stop_path(@tour)
       else
-        flash[:notice] = "Ruh roh! Something went wrong."
+        flash[:notice] = "Something went wrong."
         render :new
       end
     else

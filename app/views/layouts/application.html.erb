@@ -30,7 +30,9 @@
 
   <%- flash.each do |key, value| -%>
     <div class="flash flash-<%= key %>">
-      <%= value %>
+      <% value.each do |message| %>
+        <%= message + "." %>
+      <% end %>
     </div>
   <%- end -%>
 

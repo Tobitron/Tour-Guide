@@ -25,7 +25,7 @@ function initialize() {
   // supressed directions marker icons here, could theoritcally make custom ones, but I think it'll be busy in addition to place markers
   directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
 
-  var center = { lat: stops[0].latitude, lng: stops[0].longitude };
+  var center = { lat: stops[0].latitude, lng: stops[0].longitude + .015 };
   var mapOptions = {
     center: center,
     zoom: 14
@@ -34,10 +34,6 @@ function initialize() {
   var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
   directionsDisplay.setMap(map);
-
-  // tour_data.forEach(function(stop) {
-  //   directionsDisplay.setPanel(document.getElementById(stop.div_id + '_directions_text'));
-  // });
 
   tour_data.forEach(function(stop) {
 
@@ -54,7 +50,7 @@ function initialize() {
     });
 
     google.maps.event.addDomListener(document.getElementById(stop.div_id), 'click', function () {
-      map.setCenter(new google.maps.LatLng(stop.latitude, stop.longitude));
+      map.setCenter(new google.maps.LatLng(stop.latitude, stop.longitude + .01));
       // This will reset the directions panel if you click on another stop, not sure if I want to do this though
 
 
@@ -152,7 +148,7 @@ function calc_route(stop_div_id, start_lat, start_long, end_lat, end_long) {
 };
 
 google.maps.event.addDomListener(window, 'load', initialize);
-
+debugger;
 $("#" + tour_data[0].div_id + '_directions').click(function() {
   calc_route_to_start();
 });

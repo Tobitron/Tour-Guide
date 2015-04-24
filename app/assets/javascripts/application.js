@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= noframework.waypoints.js
 //= require gmaps/google
 //= require foundation
 //= require_tree .
