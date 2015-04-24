@@ -121,12 +121,12 @@ function calc_total_route() {
           leg_lengths.push(length.distance);
       });
 
-      $.ajax({
-        method: 'PUT',
-        url: x,
-        data: { tour_legs: leg_durations, leg_lengths: leg_lengths },
-        dataType: 'json'
-      });
+      // $.ajax({
+      //   method: 'PUT',
+      //   url: x,
+      //   data: { tour_legs: leg_durations, leg_lengths: leg_lengths },
+      //   dataType: 'json'
+      // });
     }
   });
 };

@@ -13,7 +13,7 @@ gem 'pry-rails'
 gem 'gmaps4rails'
 gem "active_model_serializers", "0.8.3"
 gem 'devise'
-gem 'foundation-rails', '= 5.5.1.0'
+gem 'foundation-rails', '5.5.1.0'
 gem 'rails_12factor', group: :production
 
 group :development, :test do
