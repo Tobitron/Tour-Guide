@@ -27,8 +27,8 @@ class Tour < ActiveRecord::Base
     # refactor to find correct num by tour_stops count
   end
 
-  def self.get_tour_by_category(category)
-    where(category: category)
+  def self.get_tour_by_category(category, limit)
+    where(category: category).limit(limit)
   end
 
   def calculate_tour_time(tour_legs_params, tour)

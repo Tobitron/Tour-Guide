@@ -3,11 +3,11 @@ class ToursController < ApplicationController
   before_action :fetch_tour, only: [:show, :edit, :destroy, :update]
 
   def index
-    @food_drinks_tours = Tour.get_tour_by_category("Food/Drinks")
-    @site_seeing = Tour.get_tour_by_category("Site Seeing")
-    @history = Tour.get_tour_by_category("History")
-    @architecture = Tour.get_tour_by_category("Architecture")
-    @hybrid = Tour.get_tour_by_category("Hybrid")
+    @food_drinks_tours = Tour.get_tour_by_category("Food/Drinks", 8)
+    @site_seeing = Tour.get_tour_by_category("Site Seeing", 8)
+    @history = Tour.get_tour_by_category("History", 8)
+    @architecture = Tour.get_tour_by_category("Architecture", 8)
+    @hybrid = Tour.get_tour_by_category("Hybrid", 8)
   end
 
   def new

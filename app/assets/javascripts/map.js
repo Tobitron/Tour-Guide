@@ -29,7 +29,7 @@ function initialize() {
 
     directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
 
-    var center = { lat: stops[0].latitude, lng: stops[0].longitude + .015 };
+    var center = { lat: json_tour_data["tour"].tour_stops[0].stop.latitude, lng: json_tour_data["tour"].tour_stops[0].stop.longitude + .015 };
     var mapOptions = {
       center: center,
       zoom: 14
@@ -38,7 +38,6 @@ function initialize() {
     var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
     directionsDisplay.setMap(map);
-
 
     json_tour_data["tour"]["tour_stops"].forEach(function(stop) {
       var marker = new google.maps.Marker({
@@ -52,20 +51,19 @@ function initialize() {
               strokeWeight: 0.6
           },
       });
-    });
 
-    // Div id isn't getting passed through my api
-    // google.maps.event.addDomListener(document.getElementById(stop.div_id), 'click', function () {
-    //   map.setCenter(new google.maps.LatLng(stop.latitude, stop.longitude + .01));
-    //
-    //   tour_data.forEach(function(stop) {
-    //     document.getElementById(stop.div_id + "_directions_text").innerHTML = "";
-    //   });
-    // });
-    //
-    // google.maps.event.addListener(marker, 'click', function() {
-    //   map.setCenter(marker.getPosition());
-    // });
+      google.maps.event.addDomListener(document.getElementById(stop.stop.div_id), 'click', function () {
+        map.setCenter(new google.maps.LatLng(stop["stop"].latitude, stop["stop"].longitude + .01));
+
+        json_tour_data["tour"]["tour_stops"].forEach(function(stop) {
+          document.getElementById(stop.stop.div_id + "_directions_text").innerHTML = "";
+        });
+      });
+
+      google.maps.event.addListener(marker, 'click', function() {
+        map.setCenter(marker.getPosition());
+      });
+    });
 
   function calc_route_to_start() {
     var start = new google.maps.LatLng(user_latitude, user_longitude);
