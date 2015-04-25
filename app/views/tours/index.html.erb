@@ -10,7 +10,9 @@
       <div class="categories">
         <div class="row">
           <div class="medium-3 columns">
-            <h4>Food & Drinks</h4>
+            <div class="icon-container">
+              <%= image_tag "martini.png", class: :icon %>
+            </div>
             <ul>
               <% if !@food_drinks_tours.empty? %>
                 <% @food_drinks_tours.each do |tour| %>
@@ -22,7 +24,9 @@
             </ul>
           </div>
           <div class="medium-3 columns">
-            <h4>Site Seeing</h4>
+            <div class="icon-container">
+              <%= image_tag "tourist.png", class: :icon %>
+            </div>
             <ul>
               <% if !@site_seeing.empty? %>
                 <% @site_seeing.each do |tour| %>
@@ -34,7 +38,9 @@
             </ul>
           </div>
           <div class="medium-3 columns">
-            <h4>History</h4>
+            <div class="icon-container">
+              <%= image_tag "history.png", class: :icon %>
+            </div>
             <ul>
               <% if !@history.empty? %>
                 <% @history.each do |tour| %>
@@ -46,7 +52,9 @@
             </ul>
           </div>
           <div class="medium-3 columns ">
-            <h4>Architecture</h4>
+            <div class="icon-container">
+              <%= image_tag "architecture.png", class: :icon %>
+            </div>
             <ul>
               <% if !@architecture.empty? %>
                 <% @architecture.each do |tour| %>
@@ -59,5 +67,10 @@
           </div>
         </div>
       </div>
+  </div>
+  <div class="footer">
+    <div class="initials">
+      created by <%= link_to image_tag( "tk_small.png"), 'https://github.com/Tobitron' %>
+    </div>
   </div>
 </div>

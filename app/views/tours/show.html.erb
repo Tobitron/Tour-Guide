@@ -2,11 +2,13 @@
   <div class="">
     <h2 class="tour-header"><%= @tour.name %></h2>
   </div>
-  <div class="tour-stats">
-    <ul class="stats-text">
-      <li>Time to complete: <%= @tour_length_parsed %></li>
-      <li>Total Distance: <%= @tour.tour_distance %> miles</li>
-    </ul>
+  <div class="stats-wrapper">
+    <div class="tour-stats">
+      <ul class="stats-text">
+        <li>Time to complete: <%= @tour_length_parsed %></li>
+        <li>Total Distance: <%= @tour.tour_distance %> miles</li>
+      </ul>
+    </div>
   </div>
 </div>
 

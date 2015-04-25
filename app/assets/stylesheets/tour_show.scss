@@ -21,10 +21,14 @@
   z-index: 1;
   margin-top: .5em;
   margin-right: 1.2em;
-  width: 29.5%;
-  border: 1px solid gray;
-/*   background-color: #404749;
-opacity: .5; */
+  width: 30.3%;
+  background-color: white;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; /* future proofing */
+  -khtml-border-radius: 10px;
+  margin-bottom: 1em;
+  opacity: .85;
 }
 
 .stats-text {
@@ -33,7 +37,6 @@ opacity: .5; */
   color: black;
   opacity: none;
   list-style-type: none;
-  text-shadow: 2px 2px 8px rgb(0,0,0);
 }
 
 #directions-text {
@@ -50,7 +53,6 @@ opacity: .5; */
 }
 
 .tour-stop-name {
-  margin-top: 1em;
   padding-left: 1em;
   opacity: .8;
   background-color: #404749;

@@ -20,6 +20,9 @@ body {
   background-color: $ghost;
 }
 
+.button {
+  background-color: #245A45;
+}
 
 .container {
   ul {
@@ -35,6 +38,9 @@ body {
   }
 }
 
+.field {
+  width: 67%;
+}
 
 .top-bar-section ul li {
   background: none;
@@ -51,4 +57,13 @@ body {
   font-size: 1.1em;
   background: none;
   border: none;
+}
+
+.footer {
+  
+  .initials {
+    float: right;
+    margin-top: 1em;
+    margin-right: 2em;
+  }
 }
