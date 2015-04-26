@@ -51,7 +51,7 @@ function initialize() {
     });
 
     google.maps.event.addDomListener(document.getElementById(stop.div_id), 'click', function () {
-      map.setCenter(new google.maps.LatLng(stop.latitude, stop.longitude + .01));
+      map.setCenter(new google.maps.LatLng(stop.latitude, stop.longitude));
       // This will reset the directions panel if you click on another stop, not sure if I want to do this though
 
 
