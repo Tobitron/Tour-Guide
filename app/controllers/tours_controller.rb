@@ -28,9 +28,10 @@ class ToursController < ApplicationController
   def show
     @tour_length_parsed = distance_of_time_in_words(@tour.tour_length)
     @stops = @tour.stops
+    @tour_data = StopsData.get_data(@tour)
     respond_to do |format|
       format.html { render :show }
-      format.json { render json: @tour }
+      format.json { render json: @tour_data }
     end
   end
 

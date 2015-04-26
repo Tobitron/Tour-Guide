@@ -13,9 +13,11 @@
 </div>
 
 <% if @tour.owner?(current_user) %>
-  <%= link_to "New Stop", new_tour_stop_path(@tour), class: :button %>
-  <%= link_to "Edit Tour", edit_tour_path, class: :button %>
-  <%= link_to "Delete Tour", @tour, method: :delete, class: :button, data: {confirm: "Are you sure?"} %>
+  <div class="tour-crud-buttons">
+    <%= link_to "New Stop", new_tour_stop_path(@tour), class: :button %>
+    <%= link_to "Edit Tour", edit_tour_path, class: :button %>
+    <%= link_to "Delete Tour", @tour, method: :delete, class: :button, data: {confirm: "Are you sure?"} %>
+  </div>
 <% end %>
 
 <div class="row">
@@ -34,7 +36,7 @@
           <div id="<%= stop.name.parameterize.underscore + "_directions" %>" class="next-stop-directions"><button class="tiny button">Directions</button></div>
           <div id="<%= stop.name.parameterize.underscore + "_directions_text" %>"></div>
           <% if @tour.owner?(current_user) %>
-            <div class="crud-buttons">
+            <div class="stop-crud-buttons">
               <%= link_to "Edit Stop", edit_tour_stop_path(@tour, stop), class: "tiny button" %>
               <%= link_to "Delete Stop", [@tour, stop], method: :delete, class: "tiny button" %>
             </div>
