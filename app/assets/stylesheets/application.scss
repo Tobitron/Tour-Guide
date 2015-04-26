@@ -8,6 +8,7 @@
 $ghost: #FAFAFA;
 
 .flash {
+  font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
   background-color: green;
   padding-left: 1em;
   padding-top: 5px;
@@ -25,6 +26,8 @@ body {
 }
 
 .container {
+  font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+
   ul {
     list-style-type: none;
   }
@@ -59,7 +62,7 @@ body {
 }
 
 .footer {
-
+  font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
   .initials {
     float: right;
     margin-top: 1em;

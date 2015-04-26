@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TourBuff</title>
+  <title>Tour Buff</title>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
@@ -13,7 +13,8 @@
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
-        <%= link_to image_tag( "buffalo_icon.png"), '/' %> <span>Tour Buff</span> 
+        <%= link_to image_tag( "buffalo_icon.png"), '/', class: "buffalo-icon" %>
+        <div class="tourbuff">Tour Buff</div>
       </li>
     </ul>
 
@@ -35,9 +36,11 @@
     </div>
   <%- end -%>
 
+
   <%= yield %>
 
   <%= javascript_include_tag 'application' %>
   <%= yield :extra_footer %>
+
 </body>
 </html>
