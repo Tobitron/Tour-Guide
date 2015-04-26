@@ -10,50 +10,57 @@ body {
 
 
 .splash-image {
-  margin-left: auto;
-  margin-right: auto;
+/*   margin-left: auto;
+margin-right: auto; */
   position: relative;
 }
 
 .buffalo {
   position: absolute;
-  top: 10%;
-  left: 20%;
+  top: 52%;
+  right: 6%;
 }
 
-.image-content {
+/* .image-content {
   margin-left: auto;
   margin-right: auto;
 }
-
+ */
 .icon {
   margin-left: 10px;
   margin-top: 10px;
 }
 
 .icon-container {
-  margin-top: 3em;
+  margin-top: 1em;
   margin-bottom: 1em;
   margin-left: 2.3em;
   height: 100px;
   width: 100px;
-  background-color: gray;
+  background-color: #C2CBCE;
   border-radius: 50%;
 }
 
+.find-tours {
+  padding-top: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 2em;
+}
 
 .category-container {
   margin-left: none;
   width: 100%;
   background-color: #548ED1;
-  color: $ghost;
+  color: #C2CBCE;
 
   h4 {
     color: black;
   }
 
   a {
-    color: $ghost;
+    color: #C2CBCE;
   }
 
   li {
@@ -64,11 +71,11 @@ body {
 .categories {
   margin-left: 10%;
   margin-right: 10%;
-
 }
 
 .call-to-action {
   position: absolute;
-  top: 75%;
-  left: 43%;
+  top: 50%;
+  margin-left: 37%;
+  margin-right: 37%;
 }
