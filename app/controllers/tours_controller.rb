@@ -3,11 +3,11 @@ class ToursController < ApplicationController
   before_action :fetch_tour, only: [:show, :edit, :destroy, :update]
 
   def index
-    @food_drinks_tours = Tour.get_tour_by_category("Food/Drinks", 8)
-    @site_seeing = Tour.get_tour_by_category("Site Seeing", 8)
-    @history = Tour.get_tour_by_category("History", 8)
-    @architecture = Tour.get_tour_by_category("Architecture", 8)
-    @hybrid = Tour.get_tour_by_category("Hybrid", 8)
+    @food_drinks_tours = Tour.get_tour_by_category("Food/Drinks", 5)
+    @site_seeing = Tour.get_tour_by_category("Site Seeing", 5)
+    @history = Tour.get_tour_by_category("History", 5)
+    @architecture = Tour.get_tour_by_category("Architecture", 5)
+    @hybrid = Tour.get_tour_by_category("Hybrid", 5)
   end
 
   def new
@@ -43,7 +43,6 @@ class ToursController < ApplicationController
         params[:leg_lengths].values.each do |distance|
           tour_distance += distance[:text].to_f
         end
-
         # total_tour_time = calculate_tour_time(params[:tour_legs], @tour)
 
         transit_time = 0
@@ -59,7 +58,7 @@ class ToursController < ApplicationController
 
       total_tour_time = (time_spent_at_stop * 60) + transit_time
 
-      if @tour.update(tour_length: total_tour_time, tour_distance: tour_distance)
+      if @tour.update(tour_length: total_tour_time, tour_distance: tour_distance -2 )
         flash[:notice] = 'Tour length updated'
       else
         flash[:alert] = 'Error: tour not updated'

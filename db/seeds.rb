@@ -4,12 +4,25 @@ users = User.create([
 
 tours = Tour.create([
   { name: "San Francisco Burritos", user_id: 1, category: "Food/Drinks" },
-  { name: "Boston North End", user_id: 1, category: "Site Seeing" },
+  { name: "Boston's North End", user_id: 1, category: "Site Seeing" },
   { name: "Cambridge Bars", user_id: 1, category: "Food/Drinks" },
+  { name: "Boston Classic Dishes", user_id: 1, category: "Food/Drinks" },
+  { name: "New York Pizza", user_id: 1, category: "Food/Drinks" },
+  { name: "Best of the North End", user_id: 1, category: "Food/Drinks" },
+  { name: "Harvard Square Haunts", user_id: 1, category: "Architecture" },
   { name: "New York City Art Deco", user_id: 1, category: "Architecture" },
   { name: "Boston Brahmin", user_id: 1, category: "Architecture" },
-  { name: "Harvard Square Haunts", user_id: 1, category: "Architecture" },
-  { name: "Pacific Rim Modern of Seattle", user_id: 1, category: "Architecture" }
+  { name: "Pacific Rim Modern of Seattle", user_id: 1, category: "Architecture" },
+  { name: "Brooklyn Brown Stones", user_id: 1, category: "Architecture" },
+  { name: "Harvard Square History", user_id: 1, category: "History" },
+  { name: "Freedrom Trail", user_id: 1, category: "History" },
+  { name: "Old New York", user_id: 1, category: "History" },
+  { name: "Salem Witch Trials", user_id: 1, category: "History" },
+  { name: "South Boston History", user_id: 1, category: "History" },
+  { name: "San Francisco Street Art", user_id: 1, category: "Site Seeing" },
+  { name: "Manhattan Sites", user_id: 1, category: "Site Seeing" },
+  { name: "Brooklyn Hipsters", user_id: 1, category: "Site Seeing" },
+  { name: "Seattle Art Musems", user_id: 1, category: "Site Seeing" }
   ])
 
 stops = Stop.create([
