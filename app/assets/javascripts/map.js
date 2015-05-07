@@ -1,53 +1,53 @@
 var current_url = location.href
 var current_url = current_url + '.json'
 
-  // Need to add conditions for failure
-  function get_location(location) {
-    navigator.geolocation.getCurrentPosition(show_map);
-  };
+// Need to add conditions for failure
+function get_location(location) {
+  navigator.geolocation.getCurrentPosition(show_map);
+};
 
-  function show_map(loc) {
-    window.user_latitude = loc.coords.latitude;
-    window.user_longitude = loc.coords.longitude
+function show_map(loc) {
+  window.user_latitude = loc.coords.latitude;
+  window.user_longitude = loc.coords.longitude
 
-    // $.ajax({
-    //   method: 'PUT',
-    //   url: '/',
-    //   data: { user_latitude: user_latitude,  user_longitude: user_longitude },
-    //   dataType: 'json'
-    // });
-  };
+  // $.ajax({
+  //   method: 'PUT',
+  //   url: '/',
+  //   data: { user_latitude: user_latitude,  user_longitude: user_longitude },
+  //   dataType: 'json'
+  // });
+};
 
-  get_location(location);
+get_location(location);
 
-  var directionsDisplay;
-  var directionsService = new google.maps.DirectionsService();
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
 
 function initialize() {
   $.get(current_url, function(json_tour_data) {
-  directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
-    var center = { lat: json_tour_data["tour"].tour_stops[0].stop.latitude, lng: json_tour_data["tour"].tour_stops[0].stop.longitude + .015 };
-    var mapOptions = {
-      center: center,
-      zoom: 14,
-      styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#607FC5"},{"visibility":"on"}]}]
-    };
+    directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
+      var center = { lat: json_tour_data["tour"].tour_stops[0].stop.latitude, lng: json_tour_data["tour"].tour_stops[0].stop.longitude + .015 };
+      var mapOptions = {
+        center: center,
+        zoom: 14,
+        styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#607FC5"},{"visibility":"on"}]}]
+      };
 
-    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+      var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
-    directionsDisplay.setMap(map);
+      directionsDisplay.setMap(map);
 
-    json_tour_data["tour"]["tour_stops"].forEach(function(stop) {
-      var marker = new google.maps.Marker({
-          position: new google.maps.LatLng(stop["stop"].latitude, stop["stop"].longitude),
-          map: map,
-          icon: {
-              path: google.maps.SymbolPath.CIRCLE,
-              scale: 14,
-              fillColor: "#E26008",
-              fillOpacity: 0.6,
-              strokeWeight: 0.6
-          },
+      json_tour_data["tour"]["tour_stops"].forEach(function(stop) {
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(stop["stop"].latitude, stop["stop"].longitude),
+            map: map,
+            icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 14,
+                fillColor: "#E26008",
+                fillOpacity: 0.6,
+                strokeWeight: 0.6
+            },
       });
 
       google.maps.event.addDomListener(document.getElementById(stop.stop.div_id), 'click', function () {
