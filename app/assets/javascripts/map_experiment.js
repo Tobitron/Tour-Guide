@@ -1,6 +1,5 @@
 var current_url = location.href
 var current_url = current_url + '.json'
-$.get("http://localhost:3000/tours/1.json", function(json_tour_data) {
 
   // Need to add conditions for failure
   // function get_location(location) {
@@ -24,9 +23,9 @@ $.get("http://localhost:3000/tours/1.json", function(json_tour_data) {
   // var directionsDisplay;
   // var directionsService = new google.maps.DirectionsService();
 
-  function initialize() {
-    // directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
-
+function initialize() {
+  $.get("http://localhost:3000/tours/1.json", function(json_tour_data) {
+  // directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
     var center = { lat: json_tour_data["tour"].tour_stops[0].stop.latitude, lng: json_tour_data["tour"].tour_stops[0].stop.longitude + .015 };
     var mapOptions = {
       center: center,
@@ -62,9 +61,11 @@ $.get("http://localhost:3000/tours/1.json", function(json_tour_data) {
         map.setCenter(marker.getPosition());
       });
     });
-  };
-  google.maps.event.addDomListener(window, 'load', initialize);
-});
+  });
+};
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
 
 
   // function calc_route_to_start() {
