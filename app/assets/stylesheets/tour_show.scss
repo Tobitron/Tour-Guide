@@ -4,13 +4,6 @@
  position: absolute;
  img { max-width: none; }
  label { width: auto; display: inline; }
-
- @media only screen
-  and (min-device-width: 320px)
-  and (max-device-width: 667px)
-  and (-webkit-min-device-pixel-ratio: 2) {
-  height: 50%;
- }
 }
 
 .tour-header {
@@ -20,6 +13,14 @@
   position: absolute;
   z-index: 1;
   text-shadow: 3px 0px 2px rgba(84, 142, 209, 1);
+
+  @media only screen
+    and (min-device-width: 320px)
+    and (max-device-width: 568px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+    font-size: 3.5em;
+  }
+
 }
 
 .tour-stats {
@@ -40,9 +41,18 @@
   @media only screen
    and (min-device-width: 320px)
    and (max-device-width: 667px)
-   and (-webkit-min-device-pixel-ratio: 2) {
-    width: 30%;
+   and (-webkit-min-device-pixel-ratio: 2)
+   and (orientation: portrait) {
+    width: 40%;
   }
+
+  @media only screen
+   and (min-device-width: 320px)
+   and (max-device-width: 667px)
+   and (-webkit-min-device-pixel-ratio: 2)
+   and (orientation: landscape) {
+     width: 43%;
+   }
 }
 
 .stats-text {
@@ -52,8 +62,12 @@
   opacity: none;
   list-style-type: none;
 
-  @media only screen and (max-width: 40em) {
-    font-size: .7em;
+  @media only screen
+   and (min-device-width: 320px)
+   and (max-device-width: 667px)
+   and (-webkit-min-device-pixel-ratio: 2)
+   and (orientation: portrait) {
+    font-size: 1.5em;
   }
 }
 
@@ -69,17 +83,24 @@
   height: 45em;
   overflow: auto;
   float: right;
-  width: 40%;
+   @media only screen
+   and (min-device-width: 320px)
+   and (max-device-width: 667px)
+   and (-webkit-min-device-pixel-ratio: 2)
+   and (orientation: portrait) {
+    height: 35em;
+    width: 100%;
+    float: none;
+  }
 
   @media only screen
    and (min-device-width: 320px)
    and (max-device-width: 667px)
-   and (-webkit-min-device-pixel-ratio: 2) {
-    margin-top: 12em;
-    height: 22em;
-    width: 100%;
-    float: none;
-  }
+   and (-webkit-min-device-pixel-ratio: 2)
+   and (orientation: landscape) {
+     height: 25em;
+     width: 45%;
+   }
 }
 
 .tour-stop-name {
@@ -88,6 +109,23 @@
   background-color: #404749;
   color: white;
   font-size: 1.5em;
+
+  @media only screen
+   and (min-device-width: 320px)
+   and (max-device-width: 667px)
+   and (-webkit-min-device-pixel-ratio: 2)
+   and (orientation: portrait) {
+   font-size: 3em;
+   }
+
+   @media only screen
+    and (min-device-width: 320px)
+    and (max-device-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: landscape) {
+    font-size: 1.75em;
+    }
+
 }
 
 .stop-number {
@@ -101,8 +139,29 @@
   font-size: .9em;
   background-color: white;
   opacity: .92;
+
+  @media only screen
+   and (min-device-width: 320px)
+   and (max-device-width: 667px)
+   and (-webkit-min-device-pixel-ratio: 2)
+   and (orientation: portrait) {
+   font-size: 2em;
+   }
+
+   @media only screen
+    and (min-device-width: 320px)
+    and (max-device-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: landscape) {
+    font-size: 1.5em;
+    }
 }
 
 .crud-buttons {
   padding-top: 2em;
+}
+
+.tour-crud-buttons {
+  margin-left: 1em;
+  margin-top: 1em;
 }
