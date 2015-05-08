@@ -5,7 +5,10 @@
  img { max-width: none; }
  label { width: auto; display: inline; }
 
- @media only screen and (max-width: 40em) {
+ @media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2) {
   height: 50%;
  }
 }
@@ -34,7 +37,10 @@
   margin-bottom: 1em;
   opacity: .85;
 
-  @media only screen and (max-width: 40em) {
+  @media only screen
+   and (min-device-width: 320px)
+   and (max-device-width: 667px)
+   and (-webkit-min-device-pixel-ratio: 2) {
     width: 30%;
   }
 }
@@ -65,9 +71,12 @@
   float: right;
   width: 40%;
 
-  @media only screen and (max-width: 40em) {
+  @media only screen
+   and (min-device-width: 320px)
+   and (max-device-width: 667px)
+   and (-webkit-min-device-pixel-ratio: 2) {
     margin-top: 12em;
-    height: 20em;
+    height: 22em;
     width: 100%;
     float: none;
   }
