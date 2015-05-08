@@ -10,12 +10,12 @@ function show_map(loc) {
   window.user_latitude = loc.coords.latitude;
   window.user_longitude = loc.coords.longitude
 
-  // $.ajax({
-  //   method: 'PUT',
-  //   url: '/',
-  //   data: { user_latitude: user_latitude,  user_longitude: user_longitude },
-  //   dataType: 'json'
-  // });
+  $.ajax({
+    method: 'PUT',
+    url: '/',
+    data: { user_latitude: user_latitude,  user_longitude: user_longitude },
+    dataType: 'json'
+  });
 };
 
 get_location(location);
@@ -120,18 +120,17 @@ $.get(current_url, function(json_tour_data) {
             leg_lengths.push(length.distance);
         });
 
-        // $.ajax({
-        //   method: 'PUT',
-        //   url: x,
-        //   data: { tour_legs: leg_durations, leg_lengths: leg_lengths },
-        //   dataType: 'json'
-        // });
+        $.ajax({
+          method: 'PUT',
+          url: x,
+          data: { tour_legs: leg_durations, leg_lengths: leg_lengths },
+          dataType: 'json'
+        });
       }
     });
   };
 
   calc_total_route();
-
 
   function calc_route(stop_div_id, start_lat, start_long, end_lat, end_long) {
    var start = new google.maps.LatLng(start_lat, start_long);
@@ -156,7 +155,6 @@ $.get(current_url, function(json_tour_data) {
   $("#" + json_tour_data.tour.tour_stops[0].stop.div_id + '_directions').click(function() {
     calc_route_to_start();
   });
-
 
   // This loop both declares which divs should trigger calcRoute, and passes in the parameters that calcRoute will use
   json_tour_data.tour.tour_stops.forEach(function(stop) {

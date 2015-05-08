@@ -17,10 +17,9 @@
   <%= link_to "Edit Tour", edit_tour_path, class: :button %>
   <%= link_to "Delete Tour", @tour, method: :delete, class: :button, data: {confirm: "Are you sure?"} %>
 <% end %>
-
 <div class="row">
-  <div id="map-canvas"></div>
-  <div class="medium-4 columns medium-offset-8">
+  <div  id="map-canvas"></div>
+  <div class="small-12 columns $mall-offset-8">
     <div class="tour-content">
       <div class="stop-list">
       <% @stops.each do |stop| %>

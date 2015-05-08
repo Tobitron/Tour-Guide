@@ -1,5 +1,5 @@
 language: ruby
 rvm:
-  - 2.0.0  # replace this with the ruby version you are using in development
+  - 2.0.0
 before_script:
   - psql -c 'create database tour-guide_test;' -U postgres
