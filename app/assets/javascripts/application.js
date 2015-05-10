@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require gmaps/google
+//= require jquery.sticky
 //= require foundation
 //= require_tree .
 

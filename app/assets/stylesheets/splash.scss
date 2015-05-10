@@ -10,8 +10,6 @@ body {
 
 
 .splash-image {
-/*   margin-left: auto;
-margin-right: auto; */
   position: relative;
 }
 
@@ -21,20 +19,15 @@ margin-right: auto; */
   right: 6%;
 }
 
-/* .image-content {
-  margin-left: auto;
-  margin-right: auto;
-}
- */
 .icon {
-  margin-left: 10px;
   margin-top: 10px;
 }
 
 .icon-container {
   margin-top: 1em;
   margin-bottom: 1em;
-  margin-left: 2.3em;
+  margin-left: auto;
+  margin-right: auto;
   height: 100px;
   width: 100px;
   background-color: #C2CBCE;
@@ -43,17 +36,15 @@ margin-right: auto; */
 
 .find-tours {
   padding-top: 1em;
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
   font-size: 2em;
 }
 
 .category-container {
-  margin-left: none;
   width: 100%;
   background-color: #3D6EBC;
   color: #C2CBCE;
+  text-align: center;
 
   h4 {
     color: black;
@@ -72,10 +63,11 @@ margin-right: auto; */
   margin-left: 10%;
   margin-right: 10%;
 }
+.tour-button-container{
+}
 
 .call-to-action {
   position: absolute;
-  top: 60%;
-  margin-left: 37%;
-  margin-right: 37%;
+  margin-top: 75%;
+  z-index: 1;
 }
