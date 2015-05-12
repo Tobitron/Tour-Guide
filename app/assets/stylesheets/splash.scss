@@ -8,7 +8,6 @@ body {
   font-family: $font-sans;
 }
 
-
 .splash-image {
   position: relative;
 }
@@ -17,6 +16,13 @@ body {
   position: absolute;
   top: 52%;
   right: 6%;
+}
+
+
+.find-tours {
+  padding-top: 1em;
+  text-align: center;
+  font-size: 2em;
 }
 
 .icon {
@@ -32,12 +38,6 @@ body {
   width: 100px;
   background-color: #C2CBCE;
   border-radius: 50%;
-}
-
-.find-tours {
-  padding-top: 1em;
-  text-align: center;
-  font-size: 2em;
 }
 
 .category-container {

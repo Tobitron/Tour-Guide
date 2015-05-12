@@ -122,7 +122,7 @@ $.get(current_url, function(json_tour_data) {
 
         $.ajax({
           method: 'PUT',
-          url: x,
+          url: current_url,
           data: { tour_legs: leg_durations, leg_lengths: leg_lengths },
           dataType: 'json'
         });

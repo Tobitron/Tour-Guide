@@ -1,3 +1,13 @@
+.next-stop-directions .button {
+  @media only screen
+    and (min-device-width: 320px)
+    and (max-device-width: 568px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+    font-size: 1em;
+  }
+}
+
+
 #map-canvas {
  height: 100%;
  width: 100%;
@@ -79,16 +89,16 @@
 }
 
 .tour-content {
-  border: 3px solid green;
   height: 45em;
   overflow: auto;
   float: right;
+  width: 80%;
    @media only screen
    and (min-device-width: 320px)
    and (max-device-width: 667px)
    and (-webkit-min-device-pixel-ratio: 2)
    and (orientation: portrait) {
-    height: 35em;
+    height: 65em;
     width: 100%;
     float: none;
   }
@@ -99,7 +109,7 @@
    and (-webkit-min-device-pixel-ratio: 2)
    and (orientation: landscape) {
      height: 25em;
-     width: 45%;
+     width: 100%;
    }
 }
 

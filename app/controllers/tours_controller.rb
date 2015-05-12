@@ -43,7 +43,7 @@ class ToursController < ApplicationController
           tour_distance += distance[:text].to_f
         end
 
-        # total_tour_time = calculate_tour_time(params[:tour_legs], @tour)
+        tour_distance = (tour_distance - 2).round(2)
 
         transit_time = 0
         params[:tour_legs].values.each do |length|
