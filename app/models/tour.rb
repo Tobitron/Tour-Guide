@@ -28,7 +28,7 @@ class Tour < ActiveRecord::Base
   end
 
   def self.get_tour_by_category(category, limit)
-    where(category: category).limit(limit)
+    where(category: category).limit(limit).order(created_at: :desc)
   end
 
   def calculate_tour_time(tour_legs_params, tour)

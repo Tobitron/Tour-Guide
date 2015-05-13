@@ -3,9 +3,6 @@ users = User.create([
   ])
 
 tours = Tour.create([
-  { name: "San Francisco Burritos", user_id: 1, category: "Food/Drinks" },
-  { name: "Boston's North End", user_id: 1, category: "Site Seeing" },
-  { name: "Cambridge Bars", user_id: 1, category: "Food/Drinks" },
   { name: "Boston Classic Dishes", user_id: 1, category: "Food/Drinks" },
   { name: "New York Pizza", user_id: 1, category: "Food/Drinks" },
   { name: "Best of the North End", user_id: 1, category: "Food/Drinks" },
@@ -22,7 +19,10 @@ tours = Tour.create([
   { name: "San Francisco Street Art", user_id: 1, category: "Site Seeing" },
   { name: "Manhattan Sites", user_id: 1, category: "Site Seeing" },
   { name: "Brooklyn Hipsters", user_id: 1, category: "Site Seeing" },
-  { name: "Seattle Art Musems", user_id: 1, category: "Site Seeing" }
+  { name: "Seattle Art Musems", user_id: 1, category: "Site Seeing" },
+  { name: "San Francisco Burritos", user_id: 1, category: "Food/Drinks" },
+  { name: "Boston's North End", user_id: 1, category: "Site Seeing" },
+  { name: "Cambridge Bars", user_id: 1, category: "Food/Drinks" }
   ])
 
 stops = Stop.create([
@@ -46,21 +46,21 @@ stops = Stop.create([
 
 tour_stops = TourStop.create([
   # Start SF burrito tour
-  { tour_id: 1, stop_id: 1, stop_number: 1},
-  { tour_id: 1, stop_id: 2, stop_number: 2},
-  { tour_id: 1, stop_id: 3, stop_number: 3},
-  { tour_id: 1, stop_id: 4, stop_number: 4},
-  { tour_id: 1, stop_id: 5, stop_number: 5},
+  { tour_id: 18, stop_id: 1, stop_number: 1},
+  { tour_id: 18, stop_id: 2, stop_number: 2},
+  { tour_id: 18, stop_id: 3, stop_number: 3},
+  { tour_id: 18, stop_id: 4, stop_number: 4},
+  { tour_id: 18, stop_id: 5, stop_number: 5},
   # Start North End Tour
-  { tour_id: 2, stop_id: 6, stop_number: 1},
-  { tour_id: 2, stop_id: 7, stop_number: 2},
-  { tour_id: 2, stop_id: 8, stop_number: 3},
-  { tour_id: 2, stop_id: 9, stop_number: 4},
-  { tour_id: 2, stop_id: 10, stop_number: 5},
+  { tour_id: 19, stop_id: 6, stop_number: 1},
+  { tour_id: 19, stop_id: 7, stop_number: 2},
+  { tour_id: 19, stop_id: 8, stop_number: 3},
+  { tour_id: 19, stop_id: 9, stop_number: 4},
+  { tour_id: 19, stop_id: 10, stop_number: 5},
   # Start Cambridge bar tour
-  { tour_id: 3, stop_id: 11, stop_number: 1},
-  { tour_id: 3, stop_id: 12, stop_number: 2},
-  { tour_id: 3, stop_id: 13, stop_number: 3},
-  { tour_id: 3, stop_id: 14, stop_number: 4},
-  { tour_id: 3, stop_id: 15, stop_number: 5}
+  { tour_id: 20, stop_id: 11, stop_number: 1},
+  { tour_id: 20, stop_id: 12, stop_number: 2},
+  { tour_id: 20, stop_id: 13, stop_number: 3},
+  { tour_id: 20, stop_id: 14, stop_number: 4},
+  { tour_id: 20, stop_id: 15, stop_number: 5}
   ])
