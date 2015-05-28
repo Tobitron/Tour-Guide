@@ -37,34 +37,15 @@ class ToursController < ApplicationController
   def update
     respond_to do |format|
       format.json do
+        tour_distance = @tour.tour_distance(params[:tour_legs])
+        total_tour_time = @tour.calculate_tour_time(params[:tour_legs])
 
-        tour_distance = 0
-        params[:leg_lengths].values.each do |distance|
-          tour_distance += distance[:text].to_f
+        if @tour.update(tour_length: total_tour_time, tour_distance: tour_distance)
+          flash[:notice] = 'Tour length updated'
+        else
+          flash[:alert] = 'Error: tour not updated'
+          render :edit
         end
-
-        tour_distance = (tour_distance - 2).round(2)
-
-        transit_time = 0
-        params[:tour_legs].values.each do |length|
-          transit_time += length[:value].to_i
-        end
-
-        time_spent_at_stop = 0
-        stops = @tour.stops
-        stops.each do |stop|
-          time_spent_at_stop += stop.stop_length
-      end
-
-      total_tour_time = (time_spent_at_stop * 60) + transit_time
-
-      if @tour.update(tour_length: total_tour_time, tour_distance: tour_distance)
-        flash[:notice] = 'Tour length updated'
-      else
-        flash[:alert] = 'Error: tour not updated'
-        render :edit
-      end
-
       end
       format.html do
         if @tour.update(tour_params)
