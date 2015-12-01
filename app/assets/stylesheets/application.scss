@@ -7,6 +7,10 @@
 
 $ghost: #FAFAFA;
 
+a {
+  color: #548ED1;
+}
+
 .flash {
   font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
   background-color: green;
@@ -55,7 +59,7 @@ body {
     (max-width: 800px) {
     width: 90%;
   }
-  
+
 }
 
 .top-bar-section ul li {
