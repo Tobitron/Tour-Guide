@@ -46,16 +46,11 @@ class Tour < ActiveRecord::Base
     (time_spent_at_stop * 60) + transit_time
   end
 
-  def tour_distance(tour_legs_params)
+  def calculate_tour_distance(tour_legs_params)
     tour_distance = 0
     tour_legs_params.values.each do |distance|
       tour_distance += distance[:text].to_f
     end
-
     tour_distance = (tour_distance - 2).round(2)
-  end
-
-  def self.get_food_drinks_tours
-    where(category: "Food/Drinks").limit(10)
   end
 end

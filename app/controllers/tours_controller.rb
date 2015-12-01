@@ -37,9 +37,8 @@ class ToursController < ApplicationController
   def update
     respond_to do |format|
       format.json do
-        tour_distance = @tour.tour_distance(params[:tour_legs])
+        tour_distance = @tour.calculate_tour_distance(params[:tour_legs])
         total_tour_time = @tour.calculate_tour_time(params[:tour_legs])
-
         if @tour.update(tour_length: total_tour_time, tour_distance: tour_distance)
           flash[:notice] = 'Tour length updated'
         else
@@ -68,7 +67,7 @@ class ToursController < ApplicationController
 
   protected
     def tour_params
-      params.require(:tour).permit(:name, :category)
+      params.require(:tour).permit(:name, :category, :tour_length, :tour_distance)
     end
 
     def fetch_tour

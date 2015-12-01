@@ -63,11 +63,20 @@ body {
   margin-left: 10%;
   margin-right: 10%;
 }
-.tour-button-container{
-}
 
-.call-to-action {
-  position: absolute;
-  margin-top: 75%;
+.centered-button {
+  width: 13.5em;
+  left: 0;
+  right: 0;
+  margin: auto;
   z-index: 1;
+  margin-top: 10%;
+  position: absolute;
+
+  @media only screen
+    and (min-device-width: 320px)
+    and (max-device-width: 568px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+    margin-top: 3%;
+  }
 }

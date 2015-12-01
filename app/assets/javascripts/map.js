@@ -111,7 +111,6 @@ $.get(current_url, function(json_tour_data) {
         leg_durations = []
         leg_lengths = []
 
-        // I need to loop through the response and create an array of durations
         response.routes[0].legs.forEach(function(duration) {
             leg_durations.push(duration.duration);
         });

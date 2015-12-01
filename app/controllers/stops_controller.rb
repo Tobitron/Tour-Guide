@@ -11,13 +11,13 @@ class StopsController < ApplicationController
 
     if @stop.save
       tour_stop = TourStop.new(tour_id: @tour.id, stop_id: @stop.id, stop_number: @tour.new_stop_number)
-      # See Spencer's Whiteboard project's FamilyMemberBuilder class for a better way to do this
+      # TODO See Spencer's Whiteboard project's FamilyMemberBuilder class for a better way to do this
       # check associations and don't use _id just normal AR objects
       if tour_stop.save
         flash[:notice] = "New stop created"
         redirect_to new_tour_stop_path(@tour)
       else
-        flash[:notice] = "Something went wrong."
+        flash[:notice] = "Something went wrong"
         render :new
       end
     else
