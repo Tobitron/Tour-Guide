@@ -29,6 +29,10 @@ function initialize() {
       var center = { lat: json_tour_data["tour"].tour_stops[0].stop.latitude, lng: json_tour_data["tour"].tour_stops[0].stop.longitude + .015 };
       var mapOptions = {
         center: center,
+        mapTypeControl: false, 
+        zoomControlOptions: {
+           position: google.maps.ControlPosition.LEFT_CENTER
+       },
         zoom: 14,
         styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#607FC5"},{"visibility":"on"}]}]
       };

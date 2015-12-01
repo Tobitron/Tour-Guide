@@ -37,7 +37,7 @@ class ToursController < ApplicationController
   def update
     respond_to do |format|
       format.json do
-        tour_distance = @tour.calculate_tour_distance(params[:tour_legs])
+        tour_distance = @tour.calculate_tour_distance(params[:leg_lengths])
         total_tour_time = @tour.calculate_tour_time(params[:tour_legs])
         if @tour.update(tour_length: total_tour_time, tour_distance: tour_distance)
           flash[:notice] = 'Tour length updated'
