@@ -1,0 +1,176 @@
+.next-stop-directions .button {
+  @media only screen
+    and (min-device-width: 320px)
+    and (max-device-width: 568px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+    font-size: 1em;
+  }
+}
+
+#map-canvas {
+ height: 100%;
+ width: 100%;
+ position: absolute;
+ img { max-width: none; }
+ label { width: auto; display: inline; }
+}
+
+.tour-header {
+  margin-left: .5em;
+  width: 50%;
+  float: left;
+  position: absolute;
+  z-index: 1;
+  text-shadow: 3px 0px 2px rgba(84, 142, 209, 1);
+
+  @media only screen
+    and (min-device-width: 320px)
+    and (max-device-width: 568px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+    font-size: 3.5em;
+  }
+}
+
+.tour-stats {
+  float: right;
+  position: relative;
+  z-index: 1;
+  margin-top: .5em;
+  margin-right: 1em;
+  width: 39%;
+  background-color: white;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -khtml-border-radius: 10px;
+  margin-bottom: 1em;
+  opacity: .85;
+
+  @media only screen
+   and (min-device-width: 320px)
+   and (max-device-width: 667px)
+   and (-webkit-min-device-pixel-ratio: 2)
+   and (orientation: portrait) {
+    width: 40%;
+  }
+
+  @media only screen
+   and (min-device-width: 320px)
+   and (max-device-width: 667px)
+   and (-webkit-min-device-pixel-ratio: 2)
+   and (orientation: landscape) {
+     width: 43%;
+   }
+}
+
+.stats-text {
+  margin-top: 1em;
+  margin-right: .4em;
+  color: black;
+  opacity: none;
+  list-style-type: none;
+
+  @media only screen
+   and (min-device-width: 320px)
+   and (max-device-width: 667px)
+   and (-webkit-min-device-pixel-ratio: 2)
+   and (orientation: portrait) {
+    font-size: 1.5em;
+  }
+}
+
+#directions-text {
+  overflow: auto;
+}
+
+.next-stop-directions {
+  margin-top: 1em;
+}
+
+.tour-content {
+  height: 45em;
+  overflow: auto;
+  float: right;
+  width: 80%;
+   @media only screen
+   and (min-device-width: 320px)
+   and (max-device-width: 667px)
+   and (-webkit-min-device-pixel-ratio: 2)
+   and (orientation: portrait) {
+    height: 65em;
+    width: 100%;
+    float: none;
+  }
+
+  @media only screen
+   and (min-device-width: 320px)
+   and (max-device-width: 667px)
+   and (-webkit-min-device-pixel-ratio: 2)
+   and (orientation: landscape) {
+     height: 25em;
+     width: 100%;
+   }
+}
+
+.tour-stop-name {
+  padding-left: 1em;
+  opacity: .8;
+  background-color: #404749;
+  color: white;
+  font-size: 1.5em;
+
+  @media only screen
+   and (min-device-width: 320px)
+   and (max-device-width: 667px)
+   and (-webkit-min-device-pixel-ratio: 2)
+   and (orientation: portrait) {
+   font-size: 3em;
+   }
+
+   @media only screen
+    and (min-device-width: 320px)
+    and (max-device-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: landscape) {
+    font-size: 1.75em;
+    }
+
+}
+
+.stop-number {
+  color: maroon;
+}
+
+.tour-stop-body {
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: 1em;
+  font-size: .9em;
+  background-color: white;
+  opacity: .92;
+
+  @media only screen
+   and (min-device-width: 320px)
+   and (max-device-width: 667px)
+   and (-webkit-min-device-pixel-ratio: 2)
+   and (orientation: portrait) {
+   font-size: 2em;
+   }
+
+   @media only screen
+    and (min-device-width: 320px)
+    and (max-device-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: landscape) {
+    font-size: 1.5em;
+    }
+}
+
+.crud-buttons {
+  padding-top: 2em;
+}
+
+.tour-crud-buttons {
+  margin-left: 1em;
+  margin-top: 1em;
+}

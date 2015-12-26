@@ -1,9 +1,81 @@
-<h2>This is the splash page.</h2>
+<head>
+  <meta name="viewport" content="width=device-width">
+</head>
 
-
-<p>Featured Tours (not all the tours, of course not):</p>
-<ul>
-<% @tours.each do |tour| %>
-  <li><%= link_to tour.name, tour_path(tour) %></il>
-<% end %>
-</ul>
+<div class="tour-button-container">
+  <div class="centered-button">
+    <%= link_to "Make Tour", new_tour_path, class: "call-to-action button large" %>
+  </div>
+</div>
+<div class="splash-image">
+  <%= image_tag "pike_place_cropped.jpg" %>
+</div>
+  <div class="category-container">
+    <div class="categories">
+    <p class="find-tours">Find Tours</p>
+      <div class="row">
+        <div class="medium-3 columns">
+          <div class="icon-container">
+            <%= image_tag "martini.png", class: :icon %>
+          </div>
+          <ul>
+            <% if !@food_drinks_tours.empty? %>
+              <% @food_drinks_tours.each do |tour| %>
+                <li><%= link_to tour.name, tour_path(tour) %></il>
+              <% end %>
+            <% else %>
+              <li> No food & drinks tours currently available. </li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="medium-3 columns">
+          <div class="icon-container">
+            <%= image_tag "tourist.png", class: :icon %>
+          </div>
+          <ul>
+            <% if !@site_seeing.empty? %>
+              <% @site_seeing.each do |tour| %>
+                <li><%= link_to tour.name, tour_path(tour) %></il>
+              <% end %>
+            <% else %>
+              <li> No site seeing tours currently available. </li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="medium-3 columns">
+          <div class="icon-container">
+            <%= image_tag "history.png", class: :icon %>
+          </div>
+          <ul>
+            <% if !@history.empty? %>
+              <% @history.each do |tour| %>
+                <li><%= link_to tour.name, tour_path(tour) %></il>
+              <% end %>
+            <% else %>
+              <li> No history tours currently available. </li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="medium-3 columns end">
+          <div class="icon-container">
+            <%= image_tag "architecture.png", class: :icon %>
+          </div>
+          <ul>
+            <% if !@architecture.empty? %>
+              <% @architecture.each do |tour| %>
+                <li><%= link_to tour.name, tour_path(tour) %></il>
+              <% end %>
+            <% else %>
+              <li> No architecture tours currently available. </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="footer">
+  <div class="initials">
+    created by <%= link_to image_tag( "tk_small.png"), 'https://github.com/Tobitron' %>
+  </div>
+</div>
+<!-- </div> -->

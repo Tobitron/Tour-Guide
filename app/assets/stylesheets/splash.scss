@@ -1,8 +1,82 @@
 $main-color: #ff0000;
 $steel: #666666;
+$ghost: #FAFAFA;
 $font-sans: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 body {
-  background-color: $steel;
+  background-color: $ghost;
   font-family: $font-sans;
+}
+
+.splash-image {
+  position: relative;
+}
+
+.buffalo {
+  position: absolute;
+  top: 52%;
+  right: 6%;
+}
+
+
+.find-tours {
+  padding-top: 1em;
+  text-align: center;
+  font-size: 2em;
+}
+
+.icon {
+  margin-top: 10px;
+}
+
+.icon-container {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100px;
+  width: 100px;
+  background-color: #C2CBCE;
+  border-radius: 50%;
+}
+
+.category-container {
+  width: 100%;
+  background-color: #3D6EBC;
+  color: #C2CBCE;
+  text-align: center;
+
+  h4 {
+    color: black;
+  }
+
+  a {
+    color: #C2CBCE;
+  }
+
+  li {
+    list-style-type: none;
+  }
+}
+
+.categories {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.centered-button {
+  width: 13.5em;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 1;
+  margin-top: 10%;
+  position: absolute;
+
+  @media only screen
+    and (min-device-width: 320px)
+    and (max-device-width: 568px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+    margin-top: 3%;
+  }
 }

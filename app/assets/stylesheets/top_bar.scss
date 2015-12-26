@@ -1,0 +1,34 @@
+$ghost: #FAFAFA;
+
+.top-bar {
+  background: $ghost;
+  border-bottom: 1px solid #548ED1;
+  height: 3.5em;
+  z-index: 2;
+}
+
+.top-bar ul .right {
+  background: $ghost;
+}
+
+.top-bar .title-area li {
+  margin-left: 1em;
+}
+
+.top-bar .name h1 a {
+  color: #548ED1;
+}
+
+.top-bar .name h1 {
+  font-size: 1.5em;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+  background: #3B6595;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+  color: #548ED1;
+  background: $ghost;
+
+}

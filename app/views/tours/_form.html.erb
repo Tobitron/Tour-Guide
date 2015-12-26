@@ -1,0 +1,24 @@
+<%= form_for @tour do |f| %>
+  <div class="row">
+    <div class="small-1 columns">
+      <%= f.label :name %>
+    </div>
+    <div class="small-6 columns end">
+      <%= f.text_field :name %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-1 columns">
+      <%= f.label :category %>
+    </div>
+    <div class="small-6 columns end">
+      <%= f.select :category, options_for_select(["Food/Drinks", "Site Seeing", "History", "Architecture", "Hybrid"]) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-1 columns button-container"></div>
+    <div class="small-2 columns end">
+      <%= f.submit class: :button %>
+    </div>
+  </div>
+<% end %>
